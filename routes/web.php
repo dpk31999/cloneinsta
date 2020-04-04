@@ -17,7 +17,7 @@ Auth::routes();
 
 Route::post('/p' ,'PostController@store');
 
-Route::post('/image' ,'ProfileController@changeimage')->name('profile.image');
+Route::post('/img' ,'ProfileController@changeimage')->name('profile.image');
 
 Route::get('/profile/{user}', 'ProfileController@index')->name('profile.show');
 Route::get('/completeprofile', 'ProfileController@create');
