@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -76,5 +78,75 @@
             @yield('content')
         </main>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+            });
+            $('.form-comment').submit(function(e){
+                $form = $(this); //wrap this in jQuery
+                var route = $form.attr('action');
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: route,
+                    data: $(this).serialize(),
+                    success: function(data){
+                        if(data.comment){
+                            var id = data.id_post;
+                            var set = '#comments' + id;
+                            console.log(data.id_comment);
+                            $(set).append('<div class="d-flex bd-highlight"><div class="p-2 flex-grow-1 bd-highlight"><a class="text-decoration-none text-dark" href="/profile/'+ data.id +'"><strong>'+ data.username +'</strong></a>'+ ' ' + data.comment  +'</div>' + '<div class="d-flex" style="position: relative;"><div class="p-2 bd-highlight" style="position: absolute; bottom: 3px;"><button id="like1" class="btn btn-primary">Like</button></div> <div class="p-2 bd-highlight"><strong> 0 </strong>Likes</div></div></div>');
+                            $('.commentInput').val('');
+                        }
+                    }
+                });
+            });
+
+            $('.form-comment-post').submit(function(e){
+                $form = $(this); //wrap this in jQuery
+                var route = $form.attr('action');
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: route,
+                    data: $(this).serialize(),
+                    success: function(data){
+                        if(data.comment){
+                            $('#comments').append('<div><img  witdh="30px" height="30px" src="/thumbs/' + data.url_thumb + '" style="border-radius: 50%;" alt=""><strong>'+ data.username +'</strong>'+ ' ' + data.comment  +'</div>' + '<div style="font-size:12px; margin-left: 30px">Just now</div>');
+                            $('.commentInput').val('');
+                        }
+                    }
+                });
+            });
+
+            $('.reply').one('click',function(){
+                var reply_id = $(this).attr('id');
+                var arr = reply_id.split('reply');
+                var id = parseInt(arr[0]+arr[1]);
+                var set = '#replyComment' + id;
+                $(set).removeClass('d-none');
+            });
+            
+            $('.form-reply-comment').submit(function(e){
+                $form = $(this); 
+                var route = $form.attr('action');
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: route,
+                    data: $(this).serialize(),
+                    success: function(data){
+                        var id = data.id_comment;
+                        var set = '#replys' + id;
+                        $(set).append('<div class="d-flex"><a href="/profile/'+ data.user.id +'"><img witdh="30px" height="30px" src="/thumbs/' + data.url_thumb + '" alt="" style="border-radius: 50%;"></a><div class="ml-3"><a class="text-decoration-none text-dark" href="/profile/'+ data.user.id +'"><strong>'+ data.user.username +'</strong></a>'+ ' ' + data.replyCmt  +'</div></div>');
+                        $('.replyInput').val('');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

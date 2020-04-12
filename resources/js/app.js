@@ -20,6 +20,9 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('follow-button', require('./components/FollowButton.vue').default);
+Vue.component('like-button', require('./components/LikeButton.vue').default);
+Vue.component('like-comment', require('./components/LikeComment.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -49,14 +52,17 @@ window.onload = function(){
         window.history.back();
       }
     }
-  };
 
-var imageSources = ["anh1.jpg", "anh2.jpg", "anh3.jpg", "anh4.jpg", "anh5.jpg"];
-var index = 0;
-setInterval (function(){
-  if (index === imageSources.length) {
-    index = 0;
-  }
-  document.getElementById("imageChange").src = "image/" + imageSources[index];
-  index++;
-} , 4000);
+    var imageSources = ["anh1.jpg", "anh2.jpg", "anh3.jpg", "anh4.jpg", "anh5.jpg"];
+    var index = 0;
+    var img123 = document.getElementById("imageChange"); 
+    if(img123 !== null){
+      setInterval (function(){ 
+        if (index === imageSources.length) {
+          index = 0;
+        }
+        img123.src = "image/" + imageSources[index];
+        index++;
+      } , 4000);
+    }
+  };

@@ -71,9 +71,9 @@ class ProfileController extends Controller
 
     public function store(Request $request){
         $data =  $request->validate([
-            'title' => 'required|unique:profiles|max:255',
-            'description' => 'required|unique:profiles|max:255',
-            'url' => 'required|unique:profiles|max:255',
+            'title' => 'required|max:255',
+            'description' => 'required|max:255',
+            'url' => 'required|max:255',
         ]);
 
         $user_id = auth()->user()->id;

@@ -16,10 +16,12 @@ class CheckProfile
      */
     public function handle($request, Closure $next)
     {   
-        $user_id = auth()->user()->id;
-        $profile = DB::table('profiles')->where('user_id', $user_id)->first();
-        if($profile == null){
-            return redirect('/completeprofile');
+        if(auth()->user()){
+            $user_id = auth()->user()->id;
+            $profile = DB::table('profiles')->where('user_id', $user_id)->first();
+            if($profile == null){
+                return redirect('/completeprofile');
+            }
         }
         return $next($request);
     }

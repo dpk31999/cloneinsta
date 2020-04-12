@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Comment;
+use App\ReplyComment;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\DB;
 
@@ -49,18 +51,31 @@ class PostController extends Controller
         if($follow->count() > 0){
             $follows = true;
         }
+        $get = $post->getTime();
         $image = $post->image;
         $caption = $post->caption;
         $check_show = 'success';
-        $posts = DB::table('posts')->where('id', '!=' , $post->id)->get();
+        $posts = DB::table('posts')->where([
+            ['id', '!=' , $post->id],
+            ['user_id' , $post->user->id]
+        ])->get();
         $url = "profile/" . $post->user->id;
+        $comments = $post->commented;
+        $id_post = $post->id;
+        $countLike = $post->liked->count();
+        $id_user = $post->user->id;
         if(url()->previous() != url($url)){
             return view('posts.show', [
                 'user' => $user,
                 'image' =>$image,
                 'caption' =>$caption,
                 'posts' => $posts,
-                'follows' => $follows
+                'follows' => $follows,
+                'get' => $get,
+                'comments' => $comments,
+                'id_post' => $id_post,
+                'countLike' => $countLike,
+                'id_user' => $id_user
             ]);
         }
         else{
@@ -69,8 +84,55 @@ class PostController extends Controller
             'user' => $user,
             'image' => $image,
             'caption' => $caption,
-            'follows' => $follows
+            'follows' => $follows,
+            'get' => $get,
+            'comments' => $comments,
+            'id_post' => $id_post,
+            'countLike' => $countLike,
+            'id_user' => $id_user
         ]);
         }
+    }
+
+    public function createcomment(Post $post,Request $request){
+        $data = Comment::create([
+            'user_id' => auth()->user()->id,
+            'post_id' => $post->id,
+            'content' => $request->input('comment')
+        ]);
+        $id_comment = $data->id;
+        $url_thumb = 'default_ava.jpg';
+        if(auth()->user()->profile->url_thumb != ''){
+            $url_thumb = auth()->user()->profile->url_thumb;
+        }
+        $id = auth()->user()->id;   
+        return response()->json([
+            'comment' => $request->input('comment'),
+            'username' => auth()->user()->username,
+            'id_post' => $post->id,
+            'url_thumb' => $url_thumb,
+            'id' => $id,
+            'id_comment' => $id_comment
+        ], 200);
+    }
+
+    public function createreplycomment(Request $request, Comment $comment){
+        $data = ReplyComment::create([
+            'user_id' => auth()->user()->id,
+            'comment_id' => $comment->id,
+            'content' => $request->input('replyCmt')
+        ]);
+        $id_comment = $comment->id;
+        $url_thumb = 'default_ava.jpg';
+        if(auth()->user()->profile->url_thumb != ''){
+            $url_thumb = auth()->user()->profile->url_thumb;
+        }
+        return response()->json([
+            'replyCmt' => $request->input('replyCmt'),
+            'id_comment' => $comment->id,
+            'url_thumb' => $url_thumb,
+            'user' => auth()->user(),
+            'id_comment' => $id_comment
+        ], 200);
     }
 }

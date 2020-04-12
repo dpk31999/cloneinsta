@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', 'HoneController@index');
-
 Auth::routes();
 
 Route::post('/p' ,'PostController@store');
@@ -29,8 +27,14 @@ Route::middleware(['checkprofile'])->group(function () {
     Route::get('accounts/password/change', 'ProfileController@changepass')->name('profile.editpass');
     Route::get('/p/create' ,'PostController@create')->name('posts.create');
     Route::get('/p/{post}', 'PostController@show')->name('posts.show');
+    Route::get('/explore/people/suggested', 'ExploreController@show')->name('explore.show');
+    Route::get('/', 'HoneController@index')->name('home');
 });
 
 Route::post('/accounts/{user}', 'ProfileController@update')->name('profile.update');\
 Route::post('/accounts/password/{user}', 'ProfileController@updatepass')->name('profile.updatepass');
 Route::post('/follow/{user}', 'FollowsController@store');
+Route::post('/like/{user}/post/{post}', 'LikeController@store');
+Route::post('/like/{user}/comment/{comment}', 'LikeController@storeLikeComment');
+Route::post('/posts/{post}' ,'PostController@createcomment')->name('posts.comment');
+Route::post('replyCmt/{comment}','PostController@createreplycomment')->name('posts.reply');

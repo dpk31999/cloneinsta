@@ -9,7 +9,7 @@
         props : [
             'userId',
             'follows'
-        ],
+        ],  
 
         mounted() {
             console.log('Component mounted.')
@@ -23,6 +23,7 @@
 
         methods : {
             followUser(){
+                axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                 axios.post('/follow/' + this.userId)
                     .then(response => {
                         if(typeof this.status == 'string'){
