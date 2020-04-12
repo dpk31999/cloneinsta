@@ -49766,21 +49766,6 @@ window.onload = function () {
       window.history.back();
     }
   };
-
-  var imageSources = ["anh1.jpg", "anh2.jpg", "anh3.jpg", "anh4.jpg", "anh5.jpg"];
-  var index = 0;
-  var img123 = document.getElementById("imageChange");
-
-  if (img123 !== null) {
-    setInterval(function () {
-      if (index === imageSources.length) {
-        index = 0;
-      }
-
-      img123.src = "image/" + imageSources[index];
-      index++;
-    }, 4000);
-  }
 };
 
 /***/ }),
