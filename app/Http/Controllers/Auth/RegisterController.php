@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -63,12 +64,15 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
+    {   
+        $id = DB::table('users')->max('id');
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
+            'provider' => 'common',
+            'provider_id' => $id +1,
         ]);
     }
 }

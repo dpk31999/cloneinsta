@@ -4,7 +4,7 @@
 <div class="container my-4">
     <div class="row" style="padding: 2% 10% 0">
         <div class="col-7" style="height: ">
-            <img class="w-100" src="/storage/{{ $image }}" alt="">
+            <img class="w-100" src="/storage/{{ $post->image }}" alt="">
         </div>
         <div class="col-5">
             <div class="header d-flex justify-content-between align-items-center">
@@ -19,39 +19,29 @@
                 @endif
             </div>
             <hr>
-            <a class="text-decoration-none text-dark" href="{{route('profile.show',$user->id)}}"><strong>{{$user->username}} </strong> </a>{{ $caption }}
-            <div style="font-size:12px">{{$get}}</div>
+            <a class="text-decoration-none text-dark" href="{{route('profile.show',$user->id)}}"><strong>{{$user->username}} </strong> </a>{{ $post->caption }}
+            <div style="font-size:12px">{{$post->getTime()}}</div>
             <div id="comments" class="overflow-auto" style="height: 500px">
             @foreach ($comments as $comment)
-                <div class="d-flex">
+                <div class="d-flex" style="position: relative">
                     @if ($comment->user->profile->url_thumb != '')
                         <a href="{{route('profile.show',$comment->user->id)}}"><img witdh="30px" height="30px" src="/thumbs/{{$comment->user->profile->url_thumb}}" alt="" style="border-radius: 50%;"></a> 
                     @else 
                         <a href="{{route('profile.show',$comment->user->id)}}"><img  witdh="30px" height="30px" src="/thumbs/default_ava.jpg" style="border-radius: 50%;" alt=""></a>
                     @endif
                     <div>
-                        <?php
-
-                        // check user like comment
-                        $likeCm = DB::table('comment_user')->where([
-                            ['user_id', auth()->user()->id],
-                            ['comment_id', $comment->id],
-                        ])->get();
-
-                        $likesCm = false;
-                        if($likeCm->count() > 0){
-                            $likesCm = true;
-                        }
-                        ?>
-                        <div class="d-flex bd-highlight">
+                        <div class="d-flex bd-highlight mb-2">
                             <div class="flex-grow-1 bd-highlight"><a class="text-decoration-none text-dark" href="{{route('profile.show',$comment->user->id)}}"><strong>{{$comment->user->username}}</strong></a> {{$comment->content}}</div>
-                            <div style="float: right;">
-                                <like-comment user-id=" {{ $comment->user->id }} " comment-id=" {{ $comment->id }} " likes=" {{ $likesCm }} " countlike=" {{ $comment->likedCmt->count() }} "></like-comment>
-                            </div>
+                            @if ($comment->is_liked())
+                                <button style="position: absolute;top: 0%;right: 2%;" data-id="{{$comment->id}}" class="btn btn-primary like-comment-post">UnLike</button>
+                            @else 
+                                <button style="position: absolute;top: 0%;right: 2%;" data-id="{{$comment->id}}" class="btn btn-primary like-comment-post">Like</button>
+                            @endif
                         </div>
                         <div class="d-flex">
                             <div style="font-size:12px">{{$comment->getTime()}}</div>
                             <div class="reply" id="reply{{$comment->id}}" >&nbsp&nbspReply</div>
+                            <div class="ml-2"><strong id="count_like_cmt{{$comment->id}}">{{$comment->likedCmt->count()}}</strong> Likes</div>
                         </div>
                         <div id="replys{{$comment->id}}">
                             @foreach ($comment->replyComment as $replyCmt)
@@ -71,23 +61,20 @@
                             <input type="hidden" style="position: absolute; right: 10px; top:10px; background-color: white; color: slateblue; border: none;font-weight: bold" value="Post"/>
                         </form>
                     </div>
+                    
                 </div>
             @endforeach
             </div>
             <div>
-                <?php 
-                $like = DB::table('post_user')->where([
-                    ['user_id', auth()->user()->id],
-                    ['post_id', $id_post],
-                ])->get();
-                $likes = false;
-                if($like->count() > 0){
-                    $likes = true;
-                }
-                
-                ?>
-                <like-button user-id=" {{ $id_user }} " post-id=" {{ $id_post }} " likes=" {{ $likes }} " countlike=" {{ $countLike }} "></like-button>
-                <form class="form-comment-post"  action=" {{route('posts.comment',$id_post)}} " method="post">
+                <div class="d-flex flex-column">
+                    @if ($post->is_liked())
+                        <button id="like" data-id="{{$post->id}}" class="btn btn-primary">UnLike</button>
+                    @else
+                        <button id="like" data-id="{{$post->id}}" class="btn btn-primary">Like</button>
+                    @endif
+                    <div><strong id="count_like{{$post->id}}">{{$post->liked->count()}}</strong>Likes</div>
+                </div>
+                <form class="form-comment-post"  action=" {{route('posts.comment',$post->id)}} " method="post">
                     @csrf
                     <div class="d-flex" style="position: relative">
                         <input class="form-control commentInput" type="text" id="comment" name="comment" placeholder="Add a comment..." style="height: 50px" required>
@@ -99,11 +86,11 @@
         </div>
     </div>
     <div class="row pt-2">
-        <p style="color:teal">More post from <a class="text-decoration-none text-dark" href=""><span><strong>{{ $user->username}}</strong></span></p>
+        <p style="color:teal">More post from <a class="text-decoration-none text-dark" href="{{route('profile.show',$user->id)}}"><span><strong>{{ $user->username}}</strong></span></p>
     </div>
     <div class="row mt-2">
         @foreach ($posts as $post)
-            <div class="col-4 pd-2">
+            <div class="col-4" style="padding: 15px">
             <img class="w-100" src="/storage/{{ $post->image }}" alt="" height="400">
             </div>
         @endforeach

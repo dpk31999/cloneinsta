@@ -16932,3 +16932,18 @@ readers do not read off random characters that represent icons */
   cursor: pointer;
 }
 
+.in-setting {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #4c4848;
+}
+
+.in-setting1 {
+  padding: 10px;
+  text-align: center;
+}
+
+.content {
+  border-radius: 5%;
+}
+

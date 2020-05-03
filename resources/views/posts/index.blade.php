@@ -2,83 +2,24 @@
 @section('content')
 <div class="container" style="padding: 2% 10% 0;">
     <div class="row">
-        <div class="col-sm-8">
-            @foreach ($posts as $post)
-            <div class="border mb-5 bg-white">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="d-flex mt-3">
-                        <a href=" {{route('profile.show' , $post->user->id)}} "><img class="rounded-circle" width="35px" height="35px" src="/thumbs/{{$post->user->profile->url_thumb}}" alt=""></a>
-                        <a class="pt-2 text-decoration-none text-dark" href=" {{route('profile.show' , $post->user->id)}} "><p class="font-weight-bolder"> {{$post->user->username}} </p></a>
-                    </div>
-                    <div style="padding: 0 10px">
-                        <i class="fas fa-ellipsis-h"></i>
-                    </div>
-                </div>
-                <img class="w-100 mt-3" src="/storage/{{ $post->image }}" alt="">
-                <div style="padding: 10px">
-                    <div class="icon d-flex">
-                        <?php 
-                        $like = DB::table('post_user')->where([
-                            ['user_id', auth()->user()->id],
-                            ['post_id', $post->id],
-                        ])->get();
-                        $likes = false;
-                        if($like->count() > 0){
-                            $likes = true;
-                        }
-
-                        ?>
-                        <like-button user-id=" {{ $post->user->id }} " post-id=" {{ $post->id }} " likes=" {{ $likes }} " countlike=" {{ $post->liked->count() }} "></like-button>
-                    </div>
-                    {{$post->caption}}
-                    @if ($post->commented->count() > 2)
-                        <div>
-                            <a class="text-decoration-none" href=" {{route('posts.show', $post->id)}} ">View all {{$post->commented->count()}} comments</a>
-                        </div>
-                    @endif
-                    <div id="comments{{$post->id}}">
-                        @foreach ($post->commented->slice(0,2) as $comment)
-                            <?php
-                                $likeCm = DB::table('comment_user')->where([
-                                    ['user_id', auth()->user()->id],
-                                    ['comment_id', $comment->id],
-                                ])->get();
-
-                                $likesCm = false;
-                                if($likeCm->count() > 0){
-                                    $likesCm = true;
-                                }
-                            ?>
-                            <div class="d-flex bd-highlight">
-                                <div class="p-2 flex-grow-1 bd-highlight"><a class="text-decoration-none text-dark" href="{{route('profile.show',$comment->user->id)}}"><strong>{{$comment->user->username}}</strong></a> {{$comment->content}}</div>
-                                <like-comment user-id=" {{ $comment->user->id }} " comment-id=" {{ $comment->id }} " likes=" {{ $likesCm }} " countlike=" {{ $comment->likedCmt->count() }} "></like-comment>
-                            </div>
-                        @endforeach
-                    </div>
-                    <div style="font-size:12px">{{$post->getTime()}}</div>
-                </div>
-                <form class="form-comment" data-id="{{$post->id}}" action=" {{route('posts.comment',$post->id)}} " method="post">
-                    @csrf
-                    <div class="d-flex" style="position: relative">
-                        <input class="form-control commentInput" type="text" id="comment" name="comment" placeholder="Add a comment..." style="height: 50px" required>
-                        <input type="submit" style="position: absolute; right: 10px; top:10px; background-color: white; color: slateblue; border: none;font-weight: bold" value="Post"/>
-                        <div id="request_data"></div>
-                    </div>
-                </form>
-            </div>
-            @endforeach
+        <div class="col-sm-8" id="show_post">
+            
         </div>
         <div class="col-sm-4">
             @if (isset($user))
             <div class="info d-flex pt-2 align-items-center">
-                <a  href="{{route('profile.show',auth()->user()->id)}}"><img class="rounded-circle" src="/thumbs/{{$user->profile->url_thumb}}" alt="" width="40px" height="40px"></a>
+                @if ($user->profile->url_thumb != '')
+                    <a href="{{route('profile.show',$user->id)}}"><img height="50px" width="50px" style="border-radius: 50%" src="/thumbs/{{$user->profile->url_thumb}}" alt=""></a>
+                @else
+                    <a href="{{route('profile.show',$user->id)}}"><img height="50px" width="50px" style="border-radius: 50%" src="/thumbs/default_ava.jpg" alt=""></a>
+                @endif
                 <div class="name pl-2">
                     <a class="text-decoration-none text-dark" href="{{route('profile.show',auth()->user()->id)}}"><h5>{{$user->username}}</h5></a>
                     <p class="text-black-50">{{$user->name}}</p>
                 </div>
             </div>
             @endif
-            <div class="border bg-white">
+            <div class="border bg-white" style="height: auto;width: auto">
                 <div style="padding: 10px">
                     <div class="d-flex justify-content-between">
                         <span>
@@ -86,7 +27,7 @@
                         </span>
                         <a href="{{route('explore.show')}}">See All</a>
                     </div>
-                    <div class="mt-2" style="overflow: auto">
+                    <div class="mt-2" >
                         @foreach ($arr_idUser as $userFl)
                             <div class="d-flex">
                                 @if ($userFl[0]->url_thumb != '')
@@ -120,4 +61,87 @@
     </div>
 </div>
 
+<div class="modal fade" id="ModalPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content content">
+            <a class="text-decoration-none" style="font-weight: bold;color: #ed4956;" href=""><div class="in-setting" data-dismiss="modal" data-toggle="modal" data-target="#ModalReportPost">Report Inapproprite</div></a>
+            <a data-id="" class="text-decoration-none" id="unfl" style="font-weight: bold;color: #ed4956;cursor: pointer"><div class="in-setting" data-dismiss="modal" data-toggle="modal" data-target="#ModalUnfollow">Unfollow</div></a>
+            <a class="text-decoration-none text-dark" id="go_post" href=""><div class="in-setting" style="cursor: pointer">Go to post</div></a>
+            <div class="in-setting" style="cursor: pointer">Copy Link</div>
+            <div class="in-setting" data-dismiss="modal" aria-label="Close" style="cursor: pointer">Cancel</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalUnfollow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content content">
+            <div class="d-flex justify-content-center align-items-center" style="padding-top:15px">
+                <img id="img_in_post" src="" alt="" width="100px" height="100px" style="border-radius: 50%"> 
+            </div>
+            <div class="d-flex justify-content-center align-items-center in-setting">
+                <div>Unfollow <div id="name_in_post"></div></div>
+            </div>
+            <div class="in-setting" id="unfollow" data-id="" style="cursor: pointer; font-weight: bold;color: #ed4956;">Unfollow</div>
+            <div class="in-setting" id="cancel" data-dismiss="modal" aria-label="Close" style="cursor: pointer">Cancel</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalReportPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content content">
+        <div class="modal-header" style="position: relative">
+            <h5 class="modal-title" style="position: absolute; left: 35%;font-size: 20px;font-weight: bold" id="exampleModalLabel">Report</h5>
+            <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close">
+            <span style="font-size: 20px" aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="in-setting" style="font-size: 18px;font-weight: 900">Why are you report this post?</div>
+            <div id="" data-id="spam" class="in-setting spam" style="cursor: pointer">It's spam</div>
+            <div id="" data-id="inapproprite" class="in-setting inapproprite" style="cursor: pointer" data-dismiss="modal" data-toggle="modal" data-target="#ModalWriteReport">It's inapproprite</div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalThankPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content content">
+            <div style="padding: 10px">
+                <div class="d-flex justify-content-center align-items-center">
+                    <i class="fas fa-check-circle fa-3x" style="padding: 20px 0;color:rgb(88, 195, 34);d"></i>
+                </div>
+                <div>
+                    <div class="in-setting1" style="font-weight: 900;font-size:16px">Thanks for letting us know</div>
+                    <div class="in-setting1" style="color: #8e8e8e; font-size: 14px">Your feedback is important in helping us keep the Instagram community safe.</div>
+                </div>
+                <button class="btn btn-primary mt-2" style="font-size: 13px;font-weight: 900; width: 100%" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalWriteReport" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content content">
+        <div class="modal-header" style="position: relative">
+            <h5 class="modal-title" style="position: absolute; left: 35%;font-size: 15px;font-weight: bold" id="exampleModalLabel">Report a Problem</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span style="font-size: 20px" aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form class="form_report_post" data-id="form" id="" action="{{route('report.create.post')}}" method="POST">
+                <div class="form-group">
+                    <textarea placeholder="Briefly explain what makes you feel inappropriate." class="form-control" id="content_report" rows="5" required></textarea>
+                    <button type="submit" id="btn_send_report" class="btn btn-primary mt-2">Send Report</button>
+                </div>
+            </form>
+            <p style="color: #4c4848; font-weight: 400; font-size: 12px; line-height: 14px; margin: -2px 0 -3px;">Your Instagram username and browser information will be automatically included in your report.</p>
+        </div>
+        </div>
+    </div>
+</div>
 @endsection

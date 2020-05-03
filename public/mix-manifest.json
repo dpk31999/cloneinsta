@@ -1,4 +1,11 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/main.js": "/js/main.js",
+    "/js/message.js": "/js/message.js",
+    "/js/notification.js": "/js/notification.js",
+    "/js/post.js": "/js/post.js",
+    "/js/realtime.js": "/js/realtime.js",
+    "/js/search.js": "/js/search.js",
+    "/css/admin.css": "/css/admin.css"
 }

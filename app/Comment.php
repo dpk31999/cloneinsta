@@ -38,4 +38,15 @@ class Comment extends Model
         return Carbon::parse($create_day->created_at)->diffForHumans($now);
     }
 
-}
+    public function is_liked()
+    {
+        $search_auth_like_comment = DB::table('comment_user')->where([
+            ['comment_id',$this->id],
+            ['user_id',auth()->user()->id]
+        ])->get();
+        if($search_auth_like_comment->count() > 0){
+            return true;
+        }
+        return false;
+    }
+}  

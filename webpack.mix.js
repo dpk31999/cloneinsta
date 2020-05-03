@@ -13,3 +13,16 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+
+mix.js('resources/js/post.js', 'public/js');
+mix.js('resources/js/notification.js', 'public/js');
+mix.js('resources/js/message.js', 'public/js');
+mix.js('resources/js/realtime.js', 'public/js');
+mix.js('resources/js/search.js', 'public/js');
+mix.js('resources/js/main.js', 'public/js');
+
+
+mix.styles([
+    'resources/css/font-face.css',
+    'resources/css/theme.css'
+ ], 'public/css/admin.css');

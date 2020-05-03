@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
 use App\ReplyComment;
+use App\Noti;
+use Pusher\Pusher;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\DB;
 
@@ -51,60 +53,82 @@ class PostController extends Controller
         if($follow->count() > 0){
             $follows = true;
         }
-        $get = $post->getTime();
-        $image = $post->image;
-        $caption = $post->caption;
         $check_show = 'success';
         $posts = DB::table('posts')->where([
             ['id', '!=' , $post->id],
             ['user_id' , $post->user->id]
         ])->get();
         $url = "profile/" . $post->user->id;
-        $comments = $post->commented;
-        $id_post = $post->id;
-        $countLike = $post->liked->count();
-        $id_user = $post->user->id;
         if(url()->previous() != url($url)){
             return view('posts.show', [
                 'user' => $user,
-                'image' =>$image,
-                'caption' =>$caption,
                 'posts' => $posts,
+                'post' => $post,
                 'follows' => $follows,
-                'get' => $get,
-                'comments' => $comments,
-                'id_post' => $id_post,
-                'countLike' => $countLike,
-                'id_user' => $id_user
+                'comments' => $post->commented,
             ]);
         }
         else{
         return view('profiles.index' , [
             'check_show' => $check_show,
             'user' => $user,
-            'image' => $image,
-            'caption' => $caption,
             'follows' => $follows,
-            'get' => $get,
-            'comments' => $comments,
-            'id_post' => $id_post,
-            'countLike' => $countLike,
-            'id_user' => $id_user
+            'comments' => $post->commented,
+            'post' => $post,
         ]);
         }
     }
 
     public function createcomment(Post $post,Request $request){
+        $url_thumb = 'default_ava.jpg';
+        if(auth()->user()->profile->url_thumb != ''){
+            $url_thumb = auth()->user()->profile->url_thumb;
+        }
+
         $data = Comment::create([
             'user_id' => auth()->user()->id,
             'post_id' => $post->id,
             'content' => $request->input('comment')
         ]);
         $id_comment = $data->id;
-        $url_thumb = 'default_ava.jpg';
-        if(auth()->user()->profile->url_thumb != ''){
-            $url_thumb = auth()->user()->profile->url_thumb;
+
+        $options = array(
+            'cluster' => 'ap1',
+            'useTLS' => true
+        );
+
+        $pusher = new Pusher(
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
+            $options
+        );
+        $arr_comments = DB::table('comments')->where([
+            ['post_id',$post->id],
+            ['user_id','!=',$post->user->id],
+            ['user_id','!=',auth()->user()->id],
+        ])->distinct()->pluck('user_id');
+        // add noti
+        $noti = new Noti();
+
+        foreach ($arr_comments as $user_id) {
+            $noti->newNoti("comment","post that you're following",$user_id,$post->id);
         }
+
+        $noti->newNoti("comment","post",$post->user->id,$post->id);
+        $data = [
+            'from' => auth()->user()->id,
+            'to' => $post->user->id,
+            'id_post' => $post->id,
+            'username' => auth()->user()->username,
+            'comment' => $request->input('comment'),
+            'url_thumb' => $url_thumb,
+            'arr_comments' => $arr_comments,
+            'id_comment' => $id_comment
+        ]; // sending from and to user id when pressed enter
+        $pusher->trigger('channel-cmt', 'event-cmt', $data);
+
+        // add comment
         $id = auth()->user()->id;   
         return response()->json([
             'comment' => $request->input('comment'),
@@ -117,16 +141,42 @@ class PostController extends Controller
     }
 
     public function createreplycomment(Request $request, Comment $comment){
+        $url_thumb = 'default_ava.jpg';
+        if(auth()->user()->profile->url_thumb != ''){
+            $url_thumb = auth()->user()->profile->url_thumb;
+        }
+
+        $options = array(
+            'cluster' => 'ap1',
+            'useTLS' => true
+        );
+
+        $pusher = new Pusher(
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
+            $options
+        );
+
+        $noti = new Noti();
+        $noti->newNoti("reply","comment",$comment->user->id,$comment->post->id);
+
+        $data = [
+            'from' => auth()->user()->id, 
+            'to' => $comment->user->id,
+            'id_comment' => $comment->id,
+            'username' => auth()->user()->username,
+            'url_thumb' => $url_thumb,
+            'replyCmt' => $request->input('replyCmt'),
+        ]; // sending from and to user id when pressed enter
+        $pusher->trigger('channel-rep-cmt', 'event-rep-cmt', $data);
+
         $data = ReplyComment::create([
             'user_id' => auth()->user()->id,
             'comment_id' => $comment->id,
             'content' => $request->input('replyCmt')
         ]);
         $id_comment = $comment->id;
-        $url_thumb = 'default_ava.jpg';
-        if(auth()->user()->profile->url_thumb != ''){
-            $url_thumb = auth()->user()->profile->url_thumb;
-        }
         return response()->json([
             'replyCmt' => $request->input('replyCmt'),
             'id_comment' => $comment->id,

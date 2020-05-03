@@ -11,7 +11,6 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,14 +18,302 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #a7a7a7;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #929292;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .user-wrapper, .message-wrapper {
+            border: 1px solid #dddddd;
+            overflow-y: auto;
+        }
+
+        .user-wrapper {
+            height: 600px;
+        }
+
+        .user {
+            cursor: pointer;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .user:hover {
+            background: #eeeeee;
+        }
+
+        .user:last-child {
+            margin-bottom: 0;
+        }
+
+        .pending {
+            position: absolute;
+            left: 13px;
+            top: 9px;
+            background: #b600ff;
+            margin: 0;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            padding-left: 5px;
+            color: #ffffff;
+            font-size: 12px;
+        }
+
+        .media-left {
+            margin: 0 10px;
+        }
+
+        .media-left img {
+            width: 64px;
+            border-radius: 64px;
+        }
+
+        .media-body p {
+            margin: 6px 0;
+        }
+
+        .message-wrapper {
+            padding: 10px;
+            height: 536px;
+            background: #eeeeee;
+        }
+
+        .messages .message {
+            margin-bottom: 15px;
+        }
+
+        .messages .message:last-child {
+            margin-bottom: 0;
+        }
+
+        .received, .sent {
+            width: 45%;
+            padding: 3px 10px;
+            border-radius: 10px;
+        }
+
+        .received {
+            background: #ffffff;
+        }
+
+        .sent {
+            background: #3bebff;
+            float: right;
+            text-align: right;
+        }
+
+        .message p {
+            margin: 5px 0;
+        }
+
+        .date {
+            color: #777777;
+            font-size: 12px;
+        }
+
+        .active {
+            background: #eeeeee;
+        }
+
+        input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 15px 0 0 0;
+            display: inline-block;
+            border-radius: 4px;
+            box-sizing: border-box;
+            outline: none;
+            border: 1px solid #cccccc;
+        }
+
+        input[type=text]:focus {
+            border: 1px solid #aaaaaa;
+        }
+        .loader {
+            position: absolute;
+            left: 44%;
+            top: 45%;
+            border: 5px solid #d9d9d9;
+            border-radius: 50%;
+            border-top: 5px solid black;
+            width: 50px;
+            height: 50px;
+            -webkit-animation: spin 1s linear infinite; /* Safari */
+            animation: spin 1s linear infinite;
+        }
+
+        .loader1 {
+            position: absolute;
+            left: 44%;
+            top: 45%;
+            border: 5px solid #d9d9d9;
+            border-radius: 50%;
+            border-top: 5px solid black;
+            width: 50px;
+            height: 50px;
+            -webkit-animation: spin 1s linear infinite; /* Safari */
+            animation: spin 1s linear infinite;
+        }
+
+        .loader2 {
+            position: relative;
+            left: 44%;
+            top: 10px;
+            border: 2px solid #d9d9d9;
+            border-radius: 50%;
+            border-top: 3px solid black;
+            width: 40px;
+            height: 40px;
+            -webkit-animation: spin 1s linear infinite; /* Safari */
+            animation: spin 1s linear infinite;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .link-info:hover{
+            background-color: #eeeeee;
+        }
+
+        .lds-spinner {
+        color: official;
+        display: inline-block;
+        position: relative;
+        width: 50px;
+        height: 15px;
+        }
+        .lds-spinner div {
+        transform-origin: 40px 40px;
+        animation: lds-spinner 1.2s linear infinite;
+        }
+        .lds-spinner div:after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 3px;
+        left: 37px;
+        width: 2px;
+        height: 4px;
+        border-radius: 20%;
+        background: #fff;
+        }
+        .lds-spinner div:nth-child(1) {
+        transform: rotate(0deg);
+        animation-delay: -1.1s;
+        }
+        .lds-spinner div:nth-child(2) {
+        transform: rotate(30deg);
+        animation-delay: -1s;
+        }
+        .lds-spinner div:nth-child(3) {
+        transform: rotate(60deg);
+        animation-delay: -0.9s;
+        }
+        .lds-spinner div:nth-child(4) {
+        transform: rotate(90deg);
+        animation-delay: -0.8s;
+        }
+        .lds-spinner div:nth-child(5) {
+        transform: rotate(120deg);
+        animation-delay: -0.7s;
+        }
+        .lds-spinner div:nth-child(6) {
+        transform: rotate(150deg);
+        animation-delay: -0.6s;
+        }
+        .lds-spinner div:nth-child(7) {
+        transform: rotate(180deg);
+        animation-delay: -0.5s;
+        }
+        .lds-spinner div:nth-child(8) {
+        transform: rotate(210deg);
+        animation-delay: -0.4s;
+        }
+        .lds-spinner div:nth-child(9) {
+        transform: rotate(240deg);
+        animation-delay: -0.3s;
+        }
+        .lds-spinner div:nth-child(10) {
+        transform: rotate(270deg);
+        animation-delay: -0.2s;
+        }
+        .lds-spinner div:nth-child(11) {
+        transform: rotate(300deg);
+        animation-delay: -0.1s;
+        }
+        .lds-spinner div:nth-child(12) {
+        transform: rotate(330deg);
+        animation-delay: 0s;
+        }
+        @keyframes lds-spinner {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+        }
+
+    </style>
 </head>
 <body>
+    <?php 
+        if(auth()->user())
+        {
+        $count_noti = DB::table('notifications')->where([
+            ['to',auth()->user()->id],
+            ['is_read','0']
+        ])->get()->count();
+        $arr_follow = auth()->user()->following->pluck('user_id');
+        $count_mess = DB::table('messages')->whereIn('from',$arr_follow)->where([
+            ['to',auth()->user()->id],
+            ['is_read','0']
+        ])->distinct()->pluck('from')->count();
+        $count_request = DB::table('messages')->whereNotIn('from',$arr_follow)->where([
+            ['to',auth()->user()->id],
+            ['is_read','0']
+        ])->distinct()->pluck('from')->count();
+        }
+    ?>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm mb-5" style="position: fixed;width: 100%;z-index: 1">
             <div class="container">
-                <a class="navbar-brand d-flex" href="{{ url('/') }}">
+                <a class="navbar-brand d-flex mr-5" href="{{ url('/') }}">
                     <div class="pl-5"><img src="/png/logo.png" alt="" style="height: 30px; color:black;"></div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -35,10 +322,45 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+                    @guest
+                            
+                    @else 
+                    @if (auth()->user()->profile)
+                    <ul class="navbar-nav mr-auto ml-5">
+                            <div class="content">
+                                <form class="typeahead" role="search">
+                                    <input type="search" name="q" class="form-control search-input" placeholder="Type something..." autocomplete="off">
+                                </form>
+                            </div>
                     </ul>
 
+                    <ul class="navbar-nav ml-auto">
+                        <a class="nav-link" id="home" href="{{ url('/') }}"><i class="fas fa-home fa-2x mr-3"></i></a>
+                        <div style="position: relative">
+                            <div id="parent_pending1" style="position: absolute;top: -10px;left: 15px">
+                                @if ($count_mess > 0)
+                                    <span id="count_mess" class="pending">{{$count_mess}}</span>
+                                @endif
+                            </div>
+                            <a class="nav-link" id="message" href="{{ route('message') }}"><i class="fas fa-inbox fa-2x mr-3"></i></a>
+                        </div>
+                        <div style="position: relative">
+                            <div id="parent_pending" style="position: absolute;top: -10px;left: 15px">
+                                @if ($count_noti > 0)
+                                    <span id="count_noti" class="pending">{{$count_noti}}</span>
+                                @endif
+                            </div>
+                            <a class="nav-link" id="noti"><i class="fas fa-heart fa-2x mr-3"></i>
+                                
+                            </a>
+                            <div id="dropnoti" class="bg-white border rounded shadow overflow-auto" style="width: 400px;height: 500px;position: absolute;top:50px;z-index: 1;right: -40px;display: none">
+                                
+                            </div>
+                        </div>
+                    </ul>
+                    
+                    @endguest
+                    @endif
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -52,22 +374,18 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                            <li class="nav-item">
+                                @if (auth()->user()->profile)
+                                @if (auth()->user()->profile->url_thumb != '')
+                                <a href="{{route('profile.show',auth()->user()->id)}}">
+                                    <img src="/thumbs/{{auth()->user()->profile->url_thumb}}" style="border-radius: 50%" width="30px" height="30px" alt="">
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
+                            @else
+                                <a href="{{route('profile.show',auth()->user()->id)}}">
+                                    <img src="/thumbs/default_ava.jpg" style="border-radius: 50%" width="30px" height="30px" alt="">
+                                </a>
+                            @endif
+                                @endif
                             </li>
                         @endguest
                     </ul>
@@ -75,79 +393,33 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-5" id="body" style="position: relative;top:50px">
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/post.js') }}"></script>
+    <script src="{{ asset('js/notification.js') }}"></script>
+    <script src="{{ asset('js/message.js') }}"></script>
+    <script src="{{ asset('js/search.js') }}"></script>
+    <script src="{{ asset('js/realtime.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-            });
-            $('.form-comment').submit(function(e){
-                $form = $(this); //wrap this in jQuery
-                var route = $form.attr('action');
-                e.preventDefault();
-                $.ajax({
-                    type: 'POST',
-                    url: route,
-                    data: $(this).serialize(),
-                    success: function(data){
-                        if(data.comment){
-                            var id = data.id_post;
-                            var set = '#comments' + id;
-                            console.log(data.id_comment);
-                            $(set).append('<div class="d-flex bd-highlight"><div class="p-2 flex-grow-1 bd-highlight"><a class="text-decoration-none text-dark" href="/profile/'+ data.id +'"><strong>'+ data.username +'</strong></a>'+ ' ' + data.comment  +'</div>' + '<div class="d-flex" style="position: relative;"><div class="p-2 bd-highlight" style="position: absolute; bottom: 3px;"><button id="like1" class="btn btn-primary">Like</button></div> <div class="p-2 bd-highlight"><strong> 0 </strong>Likes</div></div></div>');
-                            $('.commentInput').val('');
-                        }
-                    }
-                });
-            });
-
-            $('.form-comment-post').submit(function(e){
-                $form = $(this); //wrap this in jQuery
-                var route = $form.attr('action');
-                e.preventDefault();
-                $.ajax({
-                    type: 'POST',
-                    url: route,
-                    data: $(this).serialize(),
-                    success: function(data){
-                        if(data.comment){
-                            $('#comments').append('<div><img  witdh="30px" height="30px" src="/thumbs/' + data.url_thumb + '" style="border-radius: 50%;" alt=""><strong>'+ data.username +'</strong>'+ ' ' + data.comment  +'</div>' + '<div style="font-size:12px; margin-left: 30px">Just now</div>');
-                            $('.commentInput').val('');
-                        }
-                    }
-                });
-            });
-
-            $('.reply').one('click',function(){
-                var reply_id = $(this).attr('id');
-                var arr = reply_id.split('reply');
-                var id = parseInt(arr[0]+arr[1]);
-                var set = '#replyComment' + id;
-                $(set).removeClass('d-none');
-            });
-            
-            $('.form-reply-comment').submit(function(e){
-                $form = $(this); 
-                var route = $form.attr('action');
-                e.preventDefault();
-                $.ajax({
-                    type: 'POST',
-                    url: route,
-                    data: $(this).serialize(),
-                    success: function(data){
-                        var id = data.id_comment;
-                        var set = '#replys' + id;
-                        $(set).append('<div class="d-flex"><a href="/profile/'+ data.user.id +'"><img witdh="30px" height="30px" src="/thumbs/' + data.url_thumb + '" alt="" style="border-radius: 50%;"></a><div class="ml-3"><a class="text-decoration-none text-dark" href="/profile/'+ data.user.id +'"><strong>'+ data.user.username +'</strong></a>'+ ' ' + data.replyCmt  +'</div></div>');
-                        $('.replyInput').val('');
-                    }
-                });
-            });
-        });
+        var receiver_id = '';
+        var my_id = "{{ Auth::id() }}";
+        var token = "{{ csrf_token() }}";
+        var mouse_is_inside = false;
+        var arr_user = [];
+        var startNoti = 0;
+        var actionNoti = 'inactive';
+        var startPost = 0;
+        var actionPost = 'inactive';
+        var arr_post = [];
+        var arr = [];
     </script>
 </body>
 </html>

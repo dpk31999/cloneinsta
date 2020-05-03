@@ -116,13 +116,11 @@ class ProfileController extends Controller
     public function update(User $user, Request $request){
         $data =  $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'title' => 'required|max:255',
             'description' => 'required|max:255',
             'url' => 'required|unique:profiles|max:255',
         ]);
         $user->name = $data['name'];
-        $user->email = $data['email'];
         $user->save();
 
         $profile = $user->profile;

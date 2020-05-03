@@ -1,14 +1,14 @@
 @extends('layouts.wel')
 @section('content')
 <div class="container" style="position: relative">
-        <div class="img" style="position: absolute;top: 95px;left: 319px;z-index: 1;">
+        <div class="img d-none d-sm-block" style="position: absolute;top: 95px;left: 319px;z-index: 1;">
             <img id="imageChange" src="/image/anh1.jpg" alt="">
         </div>
     <div class="row">
-        <div class="col-6" style="padding: 0 15%">
+        <div class="col-sm-6 d-none d-sm-block" style="padding: 0 15%">
             <img src="https://www.instagram.com/static/images/homepage/home-phones.png/43cc71bb1b43.png" width="450" height="610" alt="">
         </div>
-        <div class="col-4 ml-4 mt-5">
+        <div class="col-sm-4 ml-4 mt-5">
             <div class="top border bg-white d-flex flex-column justify-content-center">
                 <img src="/png/logo.png" alt="" style="margin: 25px 74px;height: 50px;width: 187px;color: black;">
                 <div class="form mr-5 ml-5">
@@ -39,15 +39,15 @@
                                 Log In
                             </button>
                     </div>
-                    <div class="or pt-4">
+                    <div class="or pt-4" style="position: relative">
                         <div class="border-top pt-3">
                         </div>
-                        <div style="position: relative">
-                            <p class="text-center" style="position: absolute;bottom: -10px;right: 100px;padding: 0 17px;background-color: white;">OR</p>
+                        <div>
+                            <p class="text-center" style="position: absolute;bottom: -10px;right: 40%;padding: 0 17px;background-color: white;">OR</p>
                         </div>
                     </div>
                     <div class="fb d-flex justify-content-center">
-                        <a href=""><p>Log in with Facebook</p></a>
+                        <a href="{{ url('/auth/redirect/facebook') }}"><p>Log in with Facebook</p></a>
                     </div>
                 </form>
                 </div>
