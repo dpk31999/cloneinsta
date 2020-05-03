@@ -73,6 +73,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'provider' => 'common',
             'provider_id' => $id +1,
+            'status' => '0'
         ]);
     }
 }
