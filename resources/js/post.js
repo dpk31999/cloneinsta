@@ -1,5 +1,12 @@
 
 $(document).ready(function(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+    });
+
+
     $('.reply').one('click',function(){
         var reply_id = $(this).attr('id');
         var arr = reply_id.split('reply');
