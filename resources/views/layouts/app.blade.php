@@ -418,8 +418,13 @@
         var actionNoti = 'inactive';
         var startPost = 0;
         var actionPost = 'inactive';
-        var arr_post = [];
         var arr = [];
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     </script>
 </body>
 </html>

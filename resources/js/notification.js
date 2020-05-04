@@ -1,5 +1,9 @@
 
 $(document).ready(function(){
+    var mouse_is_inside = false;
+    var startNoti = 0;
+    var actionNoti = 'inactive';
+
     function load_noti(startNoti){
         $.ajax({
             url : origin + "/notification",

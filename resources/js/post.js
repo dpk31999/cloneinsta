@@ -1,5 +1,9 @@
 
 $(document).ready(function(){
+
+    var my_id = "{{ Auth::id() }}";
+    var startPost = 0;
+    var actionPost = 'inactive';
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

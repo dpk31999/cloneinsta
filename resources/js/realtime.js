@@ -1,6 +1,12 @@
 
 
 $(document).ready(function(){
+
+    var receiver_id = '';
+    var my_id = "{{ Auth::id() }}";
+    var token = "{{ csrf_token() }}";
+    var arr_user = [];
+    
     Pusher.logToConsole = true;
 
     var pusher = new Pusher('e85b431a16d3cfe78949', {
