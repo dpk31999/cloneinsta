@@ -16,9 +16,9 @@ class UserTableSeeder extends Seeder
     {
         $admin = Admin::create([
             'name' => 'Huynh Dong',
-            'username' => 'huynhdong',
+            'username' => 'huynhdong123',
             'password' => Hash::make('password'),
-            'email' => 'd01295306464@gmail.com',
+            'email' => 'd0129530646@gmail.com',
         ]);
 
         $superAdmin = Role::where('name','superadmin')->first();
