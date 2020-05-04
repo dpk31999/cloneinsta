@@ -8,7 +8,7 @@
                     <div class="col-6">
                         <div class="item bg-info" id="mess_reccent" style="border: 1px solid black; text-align: center; cursor: pointer">
                             Reccent 
-                            @if ($count_mess)
+                            @if (isset($count_mess))
                             <span id="parent_m">
                                 (<span id="countM">{{$count_mess}}</span>)
                             </span>
@@ -18,7 +18,7 @@
                     <div class="col-6">
                         <div class="item" id="mess_request" style="border: 1px solid black; text-align: center;cursor: pointer">
                             Message Request 
-                            @if ($count_request)
+                            @if (isset($count_request))
                             <span id="parent_r">
                                 (<span id="countR">{{$count_request}}</span>)
                             </span>
