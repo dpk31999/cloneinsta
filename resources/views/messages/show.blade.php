@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="user-wrapper" style="position: relative">
-                    @if (isset($user) == false)
+                    @if (isset($users) == false)
                         <h4 style="position: absolute;top: 20%;left:10%;">You don't have reccent message!</h4>
                     @else
                     <ul class="users">

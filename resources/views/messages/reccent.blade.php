@@ -1,5 +1,5 @@
 <ul class="users">
-@if (isset($user))
+@if (isset($users))
 @foreach($users as $user)
 <li class="user" id="{{ $user->id }}">
     {{--will show unread count notification--}}
@@ -25,8 +25,7 @@
     </div>
 </li>
 @endforeach
-@endif
-</ul>
-@if (isset($user) == false)
+@else
     <h4 style="position: absolute;top: 20%;left:10%;">You don't have reccent message!</h4>
 @endif
+</ul>

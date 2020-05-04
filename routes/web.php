@@ -23,6 +23,7 @@ Route::get('/profile/{user}', 'ProfileController@index')->name('profile.show');
 Route::get('/completeprofile', 'ProfileController@create');
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
+Route::get('/getId','HoneController@getId');
 
 Route::post('/profile','ProfileController@store')->name('profile.create');
 

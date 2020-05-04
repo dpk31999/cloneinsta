@@ -18,11 +18,17 @@ class MessageController extends Controller
     public function index(){
         $following = auth()->user()->following->pluck('user_id')->toArray();
         if($following != []){
+        $count_mess = DB::table('messages')->whereIn('from',$following)->where([
+            ['to',auth()->user()->id],
+            ['is_read','0']
+        ])->distinct()->pluck('from')->count();
+        $count_request = DB::table('messages')->whereNotIn('from',$following)->where([
+            ['to',auth()->user()->id],
+            ['is_read','0']
+        ])->distinct()->pluck('from')->count(); 
         $users = DB::select('select `users`.`id`, `users`.`name`, `users`.`email`, `profiles`.`url_thumb`,count(is_read) as unread from `users` left join `messages` on `users`.`id` = `messages`.`from` and is_read = 0 and messages.to = ' . auth()->user()->id .'  left join `profiles` on (`users`.`id` = `profiles`.`user_id`) where `users`.`id` != ' . auth()->user()->id .' and `users`.`id`  in (' . implode(',', array_map('intval', $following)) . ') group by `users`.`id`, `users`.`name`, `users`.`email`, `profiles`.`url_thumb`;');
-        return view('messages.show', [
-            'users' => $users
-        ]);    
-    }
+        return view('messages.show', \compact('users','count_mess','count_request'));    
+        }
         // dd($users);
         // $users = DB::table('users')
         //         ->leftJoin('messages',[

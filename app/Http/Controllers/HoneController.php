@@ -100,4 +100,11 @@ class HoneController extends Controller
 
         return view('posts.post', compact('posts','user','arr_idUser'));
     }
+
+    public function getId()
+    {
+        return response()->json([
+            'my_id' => auth()->user()->id
+        ], 200);
+    }
 }
