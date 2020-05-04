@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use App\Admin;
 use App\Role;
 
@@ -13,7 +14,12 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $admin = Admin::find(1);
+        $admin = Admin::create([
+            'name' => 'Huynh Dong',
+            'username' => 'dong123123',
+            'password' => Hash::make('password'),
+            'email' => 'd01295306466@gmail.com',
+        ]);
 
         $superAdmin = Role::where('name','superadmin')->first();
 
