@@ -1,1 +1,1598 @@
-!function(e){var o={};function t(a){if(o[a])return o[a].exports;var r=o[a]={i:a,l:!1,exports:{}};return e[a].call(r.exports,r,r.exports,t),r.l=!0,r.exports}t.m=e,t.c=o,t.d=function(e,o,a){t.o(e,o)||Object.defineProperty(e,o,{enumerable:!0,get:a})},t.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},t.t=function(e,o){if(1&o&&(e=t(e)),8&o)return e;if(4&o&&"object"==typeof e&&e&&e.__esModule)return e;var a=Object.create(null);if(t.r(a),Object.defineProperty(a,"default",{enumerable:!0,value:e}),2&o&&"string"!=typeof e)for(var r in e)t.d(a,r,function(o){return e[o]}.bind(null,r));return a},t.n=function(e){var o=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(o,"a",o),o},t.o=function(e,o){return Object.prototype.hasOwnProperty.call(e,o)},t.p="/",t(t.s=52)}({52:function(e,o,t){e.exports=t(53)},53:function(e,o){!function(e){"use strict";try{if(o=document.getElementById("widgetChart1")){o.height=130;new Chart(o,{type:"line",data:{labels:["January","February","March","April","May","June","July"],type:"line",datasets:[{data:[78,81,80,45,34,12,40],label:"Dataset",backgroundColor:"rgba(255,255,255,.1)",borderColor:"rgba(255,255,255,.55)"}]},options:{maintainAspectRatio:!0,legend:{display:!1},layout:{padding:{left:0,right:0,top:0,bottom:0}},responsive:!0,scales:{xAxes:[{gridLines:{color:"transparent",zeroLineColor:"transparent"},ticks:{fontSize:2,fontColor:"transparent"}}],yAxes:[{display:!1,ticks:{display:!1}}]},title:{display:!1},elements:{line:{borderWidth:0},point:{radius:0,hitRadius:10,hoverRadius:4}}}})}if(o=document.getElementById("widgetChart2")){o.height=130;new Chart(o,{type:"line",data:{labels:["January","February","March","April","May","June"],type:"line",datasets:[{data:[1,18,9,17,34,22],label:"Dataset",backgroundColor:"transparent",borderColor:"rgba(255,255,255,.55)"}]},options:{maintainAspectRatio:!1,legend:{display:!1},responsive:!0,tooltips:{mode:"index",titleFontSize:12,titleFontColor:"#000",bodyFontColor:"#000",backgroundColor:"#fff",titleFontFamily:"Montserrat",bodyFontFamily:"Montserrat",cornerRadius:3,intersect:!1},scales:{xAxes:[{gridLines:{color:"transparent",zeroLineColor:"transparent"},ticks:{fontSize:2,fontColor:"transparent"}}],yAxes:[{display:!1,ticks:{display:!1}}]},title:{display:!1},elements:{line:{tension:1e-5,borderWidth:1},point:{radius:4,hitRadius:10,hoverRadius:4}}}})}if(o=document.getElementById("widgetChart3")){o.height=130;new Chart(o,{type:"line",data:{labels:["January","February","March","April","May","June"],type:"line",datasets:[{data:[65,59,84,84,51,55],label:"Dataset",backgroundColor:"transparent",borderColor:"rgba(255,255,255,.55)"}]},options:{maintainAspectRatio:!1,legend:{display:!1},responsive:!0,tooltips:{mode:"index",titleFontSize:12,titleFontColor:"#000",bodyFontColor:"#000",backgroundColor:"#fff",titleFontFamily:"Montserrat",bodyFontFamily:"Montserrat",cornerRadius:3,intersect:!1},scales:{xAxes:[{gridLines:{color:"transparent",zeroLineColor:"transparent"},ticks:{fontSize:2,fontColor:"transparent"}}],yAxes:[{display:!1,ticks:{display:!1}}]},title:{display:!1},elements:{line:{borderWidth:1},point:{radius:4,hitRadius:10,hoverRadius:4}}}})}if(o=document.getElementById("widgetChart4")){o.height=115;new Chart(o,{type:"bar",data:{labels:["January","February","March","April","May","June","July","August","September","October","November","December"],datasets:[{label:"My First dataset",data:[78,81,80,65,58,75,60,75,65,60,60,75],borderColor:"transparent",borderWidth:"0",backgroundColor:"rgba(255,255,255,.3)"}]},options:{maintainAspectRatio:!0,legend:{display:!1},scales:{xAxes:[{display:!1,categoryPercentage:1,barPercentage:.65}],yAxes:[{display:!1}]}}})}if(o=document.getElementById("recent-rep-chart")){o.height=250;new Chart(o,{type:"line",data:{labels:["January","February","March","April","May","June","July","August","September",""],datasets:[{label:"My First dataset",backgroundColor:"rgba(0,173,95,0.8)",borderColor:"transparent",pointHoverBackgroundColor:"#fff",borderWidth:0,data:[52,60,55,50,65,80,57,70,105,115]},{label:"My Second dataset",backgroundColor:"rgba(0,181,233,0.8)",borderColor:"transparent",pointHoverBackgroundColor:"#fff",borderWidth:0,data:[102,70,80,100,56,53,80,75,65,90]}]},options:{maintainAspectRatio:!0,legend:{display:!1},responsive:!0,scales:{xAxes:[{gridLines:{drawOnChartArea:!0,color:"#f2f2f2"},ticks:{fontFamily:"Poppins",fontSize:12}}],yAxes:[{ticks:{beginAtZero:!0,maxTicksLimit:5,stepSize:50,max:150,fontFamily:"Poppins",fontSize:12},gridLines:{display:!0,color:"#f2f2f2"}}]},elements:{point:{radius:0,hitRadius:10,hoverRadius:4,hoverBorderWidth:3}}}})}if(o=document.getElementById("percent-chart")){o.height=280;new Chart(o,{type:"doughnut",data:{datasets:[{label:"My First dataset",data:[60,40],backgroundColor:["#00b5e9","#fa4251"],hoverBackgroundColor:["#00b5e9","#fa4251"],borderWidth:[0,0],hoverBorderColor:["transparent","transparent"]}],labels:["Products","Services"]},options:{maintainAspectRatio:!1,responsive:!0,cutoutPercentage:55,animation:{animateScale:!0,animateRotate:!0},legend:{display:!1},tooltips:{titleFontFamily:"Poppins",xPadding:15,yPadding:10,caretPadding:0,bodyFontSize:16}}})}}catch(e){console.log(e)}try{if(o=document.getElementById("recent-rep2-chart")){o.height=230;new Chart(o,{type:"line",data:{labels:["January","February","March","April","May","June","July","August","September",""],datasets:[{label:"My First dataset",backgroundColor:"rgba(0,173,95,0.2)",borderColor:"rgba(0,173,95,0.9)",pointHoverBackgroundColor:"#fff",borderWidth:0,data:[52,60,55,50,65,80,57,70,105,115]},{label:"My Second dataset",backgroundColor:"rgba(0,181,233,0.2)",borderColor:"rgba(0,181,233,0.9)",pointHoverBackgroundColor:"#fff",borderWidth:0,data:[102,70,80,100,56,53,80,75,65,90]}]},options:{maintainAspectRatio:!0,legend:{display:!1},responsive:!0,scales:{xAxes:[{gridLines:{drawOnChartArea:!0,color:"#f2f2f2"},ticks:{fontFamily:"Poppins",fontSize:12}}],yAxes:[{ticks:{beginAtZero:!0,maxTicksLimit:5,stepSize:50,max:150,fontFamily:"Poppins",fontSize:12},gridLines:{display:!0,color:"#f2f2f2"}}]},elements:{point:{radius:0,hitRadius:10,hoverRadius:4,hoverBorderWidth:3},line:{tension:0}}}})}}catch(e){console.log(e)}try{if(o=document.getElementById("recent-rep3-chart")){o.height=230;new Chart(o,{type:"line",data:{labels:["January","February","March","April","May","June","July",""],datasets:[{label:"My First dataset",backgroundColor:"transparent",borderColor:"rgba(0,173,95,0.9)",pointHoverBackgroundColor:"#fff",borderWidth:0,data:[52,60,55,50,65,80,57,115],pointBackgroundColor:"rgba(0,173,95,0.9)"},{label:"My Second dataset",backgroundColor:"transparent",borderColor:"rgba(0,181,233,0.9)",pointHoverBackgroundColor:"#fff",borderWidth:0,data:[102,70,80,100,56,53,80,90],pointBackgroundColor:"rgba(0,181,233,0.9)"}]},options:{maintainAspectRatio:!1,legend:{display:!1},responsive:!0,scales:{xAxes:[{gridLines:{drawOnChartArea:!0,color:"#f2f2f2"},ticks:{fontFamily:"Poppins",fontSize:12}}],yAxes:[{ticks:{beginAtZero:!0,maxTicksLimit:5,stepSize:50,max:150,fontFamily:"Poppins",fontSize:12},gridLines:{display:!1,color:"#f2f2f2"}}]},elements:{point:{radius:3,hoverRadius:4,hoverBorderWidth:3,backgroundColor:"#333"}}}})}}catch(e){console.log(e)}try{if(o=document.getElementById("widgetChart5")){o.height=220;new Chart(o,{type:"bar",data:{labels:["January","February","March","April","May","June","July","August","September","October","November","December"],datasets:[{label:"My First dataset",data:[78,81,80,64,65,80,70,75,67,85,66,68],borderColor:"transparent",borderWidth:"0",backgroundColor:"#ccc"}]},options:{maintainAspectRatio:!0,legend:{display:!1},scales:{xAxes:[{display:!1,categoryPercentage:1,barPercentage:.65}],yAxes:[{display:!1}]}}})}}catch(e){console.log(e)}try{if(o=document.getElementById("percent-chart2")){o.height=209;new Chart(o,{type:"doughnut",data:{datasets:[{label:"My First dataset",data:[60,40],backgroundColor:["#00b5e9","#fa4251"],hoverBackgroundColor:["#00b5e9","#fa4251"],borderWidth:[0,0],hoverBorderColor:["transparent","transparent"]}],labels:["Products","Services"]},options:{maintainAspectRatio:!1,responsive:!0,cutoutPercentage:87,animation:{animateScale:!0,animateRotate:!0},legend:{display:!1,position:"bottom",labels:{fontSize:14,fontFamily:"Poppins,sans-serif"}},tooltips:{titleFontFamily:"Poppins",xPadding:15,yPadding:10,caretPadding:0,bodyFontSize:16}}})}}catch(e){console.log(e)}try{if(o=document.getElementById("sales-chart")){o.height=150;new Chart(o,{type:"line",data:{labels:["2010","2011","2012","2013","2014","2015","2016"],type:"line",defaultFontFamily:"Poppins",datasets:[{label:"Foods",data:[0,30,10,120,50,63,10],backgroundColor:"transparent",borderColor:"rgba(220,53,69,0.75)",borderWidth:3,pointStyle:"circle",pointRadius:5,pointBorderColor:"transparent",pointBackgroundColor:"rgba(220,53,69,0.75)"},{label:"Electronics",data:[0,50,40,80,40,79,120],backgroundColor:"transparent",borderColor:"rgba(40,167,69,0.75)",borderWidth:3,pointStyle:"circle",pointRadius:5,pointBorderColor:"transparent",pointBackgroundColor:"rgba(40,167,69,0.75)"}]},options:{responsive:!0,tooltips:{mode:"index",titleFontSize:12,titleFontColor:"#000",bodyFontColor:"#000",backgroundColor:"#fff",titleFontFamily:"Poppins",bodyFontFamily:"Poppins",cornerRadius:3,intersect:!1},legend:{display:!1,labels:{usePointStyle:!0,fontFamily:"Poppins"}},scales:{xAxes:[{display:!0,gridLines:{display:!1,drawBorder:!1},scaleLabel:{display:!1,labelString:"Month"},ticks:{fontFamily:"Poppins"}}],yAxes:[{display:!0,gridLines:{display:!1,drawBorder:!1},scaleLabel:{display:!0,labelString:"Value",fontFamily:"Poppins"},ticks:{fontFamily:"Poppins"}}]},title:{display:!1,text:"Normal Legend"}}})}}catch(e){console.log(e)}try{if(o=document.getElementById("team-chart")){o.height=150;new Chart(o,{type:"line",data:{labels:["2010","2011","2012","2013","2014","2015","2016"],type:"line",defaultFontFamily:"Poppins",datasets:[{data:[0,7,3,5,2,10,7],label:"Expense",backgroundColor:"rgba(0,103,255,.15)",borderColor:"rgba(0,103,255,0.5)",borderWidth:3.5,pointStyle:"circle",pointRadius:5,pointBorderColor:"transparent",pointBackgroundColor:"rgba(0,103,255,0.5)"}]},options:{responsive:!0,tooltips:{mode:"index",titleFontSize:12,titleFontColor:"#000",bodyFontColor:"#000",backgroundColor:"#fff",titleFontFamily:"Poppins",bodyFontFamily:"Poppins",cornerRadius:3,intersect:!1},legend:{display:!1,position:"top",labels:{usePointStyle:!0,fontFamily:"Poppins"}},scales:{xAxes:[{display:!0,gridLines:{display:!1,drawBorder:!1},scaleLabel:{display:!1,labelString:"Month"},ticks:{fontFamily:"Poppins"}}],yAxes:[{display:!0,gridLines:{display:!1,drawBorder:!1},scaleLabel:{display:!0,labelString:"Value",fontFamily:"Poppins"},ticks:{fontFamily:"Poppins"}}]},title:{display:!1}}})}}catch(e){console.log(e)}try{if(o=document.getElementById("barChart")){o.height=200;new Chart(o,{type:"bar",defaultFontFamily:"Poppins",data:{labels:["January","February","March","April","May","June","July"],datasets:[{label:"My First dataset",data:[65,59,80,81,56,55,40],borderColor:"rgba(0, 123, 255, 0.9)",borderWidth:"0",backgroundColor:"rgba(0, 123, 255, 0.5)",fontFamily:"Poppins"},{label:"My Second dataset",data:[28,48,40,19,86,27,90],borderColor:"rgba(0,0,0,0.09)",borderWidth:"0",backgroundColor:"rgba(0,0,0,0.07)",fontFamily:"Poppins"}]},options:{legend:{position:"top",labels:{fontFamily:"Poppins"}},scales:{xAxes:[{ticks:{fontFamily:"Poppins"}}],yAxes:[{ticks:{beginAtZero:!0,fontFamily:"Poppins"}}]}}})}}catch(e){console.log(e)}try{if(o=document.getElementById("radarChart")){o.height=200;new Chart(o,{type:"radar",data:{labels:[["Eating","Dinner"],["Drinking","Water"],"Sleeping",["Designing","Graphics"],"Coding","Cycling","Running"],defaultFontFamily:"Poppins",datasets:[{label:"My First dataset",data:[65,59,66,45,56,55,40],borderColor:"rgba(0, 123, 255, 0.6)",borderWidth:"1",backgroundColor:"rgba(0, 123, 255, 0.4)"},{label:"My Second dataset",data:[28,12,40,19,63,27,87],borderColor:"rgba(0, 123, 255, 0.7",borderWidth:"1",backgroundColor:"rgba(0, 123, 255, 0.5)"}]},options:{legend:{position:"top",labels:{fontFamily:"Poppins"}},scale:{ticks:{beginAtZero:!0,fontFamily:"Poppins"}}}})}}catch(e){console.log(e)}try{if(o=document.getElementById("lineChart")){o.height=150;new Chart(o,{type:"line",data:{labels:["January","February","March","April","May","June","July"],defaultFontFamily:"Poppins",datasets:[{label:"My First dataset",borderColor:"rgba(0,0,0,.09)",borderWidth:"1",backgroundColor:"rgba(0,0,0,.07)",data:[22,44,67,43,76,45,12]},{label:"My Second dataset",borderColor:"rgba(0, 123, 255, 0.9)",borderWidth:"1",backgroundColor:"rgba(0, 123, 255, 0.5)",pointHighlightStroke:"rgba(26,179,148,1)",data:[16,32,18,26,42,33,44]}]},options:{legend:{position:"top",labels:{fontFamily:"Poppins"}},responsive:!0,tooltips:{mode:"index",intersect:!1},hover:{mode:"nearest",intersect:!0},scales:{xAxes:[{ticks:{fontFamily:"Poppins"}}],yAxes:[{ticks:{beginAtZero:!0,fontFamily:"Poppins"}}]}}})}}catch(e){console.log(e)}try{if(o=document.getElementById("doughutChart")){o.height=150;new Chart(o,{type:"doughnut",data:{datasets:[{data:[45,25,20,10],backgroundColor:["rgba(0, 123, 255,0.9)","rgba(0, 123, 255,0.7)","rgba(0, 123, 255,0.5)","rgba(0,0,0,0.07)"],hoverBackgroundColor:["rgba(0, 123, 255,0.9)","rgba(0, 123, 255,0.7)","rgba(0, 123, 255,0.5)","rgba(0,0,0,0.07)"]}],labels:["Green","Green","Green","Green"]},options:{legend:{position:"top",labels:{fontFamily:"Poppins"}},responsive:!0}})}}catch(e){console.log(e)}try{if(o=document.getElementById("pieChart")){o.height=200;new Chart(o,{type:"pie",data:{datasets:[{data:[45,25,20,10],backgroundColor:["rgba(0, 123, 255,0.9)","rgba(0, 123, 255,0.7)","rgba(0, 123, 255,0.5)","rgba(0,0,0,0.07)"],hoverBackgroundColor:["rgba(0, 123, 255,0.9)","rgba(0, 123, 255,0.7)","rgba(0, 123, 255,0.5)","rgba(0,0,0,0.07)"]}],labels:["Green","Green","Green"]},options:{legend:{position:"top",labels:{fontFamily:"Poppins"}},responsive:!0}})}}catch(e){console.log(e)}try{if(o=document.getElementById("polarChart")){o.height=200;new Chart(o,{type:"polarArea",data:{datasets:[{data:[15,18,9,6,19],backgroundColor:["rgba(0, 123, 255,0.9)","rgba(0, 123, 255,0.8)","rgba(0, 123, 255,0.7)","rgba(0,0,0,0.2)","rgba(0, 123, 255,0.5)"]}],labels:["Green","Green","Green","Green"]},options:{legend:{position:"top",labels:{fontFamily:"Poppins"}},responsive:!0}})}}catch(e){console.log(e)}try{var o;if(o=document.getElementById("singelBarChart")){o.height=150;new Chart(o,{type:"bar",data:{labels:["Sun","Mon","Tu","Wed","Th","Fri","Sat"],datasets:[{label:"My First dataset",data:[40,55,75,81,56,55,40],borderColor:"rgba(0, 123, 255, 0.9)",borderWidth:"0",backgroundColor:"rgba(0, 123, 255, 0.5)"}]},options:{legend:{position:"top",labels:{fontFamily:"Poppins"}},scales:{xAxes:[{ticks:{fontFamily:"Poppins"}}],yAxes:[{ticks:{beginAtZero:!0,fontFamily:"Poppins"}}]}}})}}catch(e){console.log(e)}}(jQuery),function(e){"use strict";jQuery(".animsition").animsition({inClass:"fade-in",outClass:"fade-out",inDuration:900,outDuration:900,linkElement:'a:not([target="_blank"]):not([href^="#"]):not([class^="chosen-single"])',loading:!0,loadingParentElement:"html",loadingClass:"page-loader",loadingInner:'<div class="page-loader__spin"></div>',timeout:!1,timeoutCountdown:5e3,onLoadEvent:!0,browser:["animation-duration","-webkit-animation-duration"],overlay:!1,overlayClass:"animsition-overlay-slide",overlayParentElement:"html",transition:function(e){window.location.href=e}})}(),function(e){"use strict";try{var o=e("#vmap");o[0]&&o.vectorMap({map:"world_en",backgroundColor:null,color:"#ffffff",hoverOpacity:.7,selectedColor:"#1de9b6",enableZoom:!0,showTooltip:!0,values:sample_data,scaleColors:["#1de9b6","#03a9f5"],normalizeFunction:"polynomial"})}catch(e){console.log(e)}try{var t=e("#vmap1");t[0]&&t.vectorMap({map:"europe_en",color:"#007BFF",borderColor:"#fff",backgroundColor:"#fff",enableZoom:!0,showTooltip:!0})}catch(e){console.log(e)}try{var a=e("#vmap2");a[0]&&a.vectorMap({map:"usa_en",color:"#007BFF",borderColor:"#fff",backgroundColor:"#fff",enableZoom:!0,showTooltip:!0,selectedColor:null,hoverColor:null,colors:{mo:"#001BFF",fl:"#001BFF",or:"#001BFF"},onRegionClick:function(e,o,t){e.preventDefault()}})}catch(e){console.log(e)}try{var r=e("#vmap3");r[0]&&r.vectorMap({map:"germany_en",color:"#007BFF",borderColor:"#fff",backgroundColor:"#fff",onRegionClick:function(e,o,t){var a='You clicked "'+t+'" which has the code: '+o.toUpperCase();alert(a)}})}catch(e){console.log(e)}try{var n=e("#vmap4");n[0]&&n.vectorMap({map:"france_fr",color:"#007BFF",borderColor:"#fff",backgroundColor:"#fff",enableZoom:!0,showTooltip:!0})}catch(e){console.log(e)}try{var i=e("#vmap5");i[0]&&i.vectorMap({map:"russia_en",color:"#007BFF",borderColor:"#fff",backgroundColor:"#fff",hoverOpacity:.7,selectedColor:"#999999",enableZoom:!0,showTooltip:!0,scaleColors:["#C8EEFF","#006491"],normalizeFunction:"polynomial"})}catch(e){console.log(e)}try{var l=e("#vmap6");l[0]&&l.vectorMap({map:"brazil_br",color:"#007BFF",borderColor:"#fff",backgroundColor:"#fff",onRegionClick:function(e,o,t){var a='You clicked "'+t+'" which has the code: '+o.toUpperCase();alert(a)}})}catch(e){console.log(e)}}(jQuery),function(e){"use strict";try{e(".js-progressbar-simple").each((function(){var o=e(this),t=!1;e(window).on("load",(function(){o.waypoint((function(){t||(t=!0,o.progressbar({update:function(e,o){o.find(".js-value").html(e+"%")}}))}),{offset:"bottom-in-view"})}))}))}catch(e){console.log(e)}}(jQuery),function(e){"use strict";try{if(e(".js-scrollbar1")[0])new PerfectScrollbar(".js-scrollbar1");if(e(".js-scrollbar2")[0])new PerfectScrollbar(".js-scrollbar2")}catch(e){console.log(e)}}(jQuery),function(e){"use strict";try{e(".js-select2").each((function(){e(this).select2({minimumResultsForSearch:20,dropdownParent:e(this).next(".dropDownSelect2")})}))}catch(e){console.log(e)}}(jQuery),function(e){"use strict";try{for(var o=e(".js-item-menu"),t=-1,a=0;a<o.length;a++)e(o[a]).on("click",(function(a){if(a.preventDefault(),e(".js-right-sidebar").removeClass("show-sidebar"),jQuery.inArray(this,o)==t)e(this).toggleClass("show-dropdown"),t=-1;else{for(var r=0;r<o.length;r++)e(o[r]).removeClass("show-dropdown");e(this).toggleClass("show-dropdown"),t=jQuery.inArray(this,o)}}));e(".js-item-menu, .js-dropdown").click((function(e){e.stopPropagation()})),e("body,html").on("click",(function(){for(var e=0;e<o.length;e++)o[e].classList.remove("show-dropdown");t=-1}))}catch(e){console.log(e)}e(window).width();var r=e(".js-right-sidebar");e(".js-sidebar-btn").on("click",(function(e){e.preventDefault();for(var a=0;a<o.length;a++)o[a].classList.remove("show-dropdown");t=-1,r.toggleClass("show-sidebar")})),e(".js-right-sidebar, .js-sidebar-btn").click((function(e){e.stopPropagation()})),e("body,html").on("click",(function(){r.removeClass("show-sidebar")}));try{e(".js-arrow").each((function(){var o=e(this);o.on("click",(function(e){e.preventDefault(),o.find(".arrow").toggleClass("up"),o.toggleClass("open"),o.parent().find(".js-sub-list").slideToggle("250")}))}))}catch(e){console.log(e)}try{e(".hamburger").on("click",(function(){e(this).toggleClass("is-active"),e(".navbar-mobile").slideToggle("500")})),e(".navbar-mobile__list li.has-dropdown > a").on("click",(function(){var o=e(this).siblings("ul.navbar-mobile__dropdown");return e(this).toggleClass("active"),e(o).slideToggle("500"),!1}))}catch(e){console.log(e)}}(jQuery),function(e){"use strict";try{var o=e(".js-list-load");o[0]&&o.each((function(){var o=e(this);o.find(".js-load-item").hide(),o.find(".js-load-btn").on("click",(function(t){e(this).text("Loading...").delay(1500).queue((function(t){e(this).hide(),o.find(".js-load-item").fadeToggle("slow","swing")})),t.preventDefault()}))}))}catch(e){console.log(e)}}(jQuery),function(e){"use strict";try{e('[data-toggle="tooltip"]').tooltip()}catch(e){console.log(e)}try{e(".js-inbox");e(".au-message__item").each((function(){e(this).on("click",(function(){e(this).parent().parent().parent().toggleClass("show-chat-box")}))}))}catch(e){console.log(e)}}(jQuery)}});
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./resources/js/main.js":
+/*!******************************!*\
+  !*** ./resources/js/main.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function ($) {
+  // USE STRICT
+  "use strict";
+
+  try {
+    //WidgetChart 1
+    var ctx = document.getElementById("widgetChart1");
+
+    if (ctx) {
+      ctx.height = 130;
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+          type: 'line',
+          datasets: [{
+            data: [78, 81, 80, 45, 34, 12, 40],
+            label: 'Dataset',
+            backgroundColor: 'rgba(255,255,255,.1)',
+            borderColor: 'rgba(255,255,255,.55)'
+          }]
+        },
+        options: {
+          maintainAspectRatio: true,
+          legend: {
+            display: false
+          },
+          layout: {
+            padding: {
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0
+            }
+          },
+          responsive: true,
+          scales: {
+            xAxes: [{
+              gridLines: {
+                color: 'transparent',
+                zeroLineColor: 'transparent'
+              },
+              ticks: {
+                fontSize: 2,
+                fontColor: 'transparent'
+              }
+            }],
+            yAxes: [{
+              display: false,
+              ticks: {
+                display: false
+              }
+            }]
+          },
+          title: {
+            display: false
+          },
+          elements: {
+            line: {
+              borderWidth: 0
+            },
+            point: {
+              radius: 0,
+              hitRadius: 10,
+              hoverRadius: 4
+            }
+          }
+        }
+      });
+    } //WidgetChart 2
+
+
+    var ctx = document.getElementById("widgetChart2");
+
+    if (ctx) {
+      ctx.height = 130;
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+          type: 'line',
+          datasets: [{
+            data: [1, 18, 9, 17, 34, 22],
+            label: 'Dataset',
+            backgroundColor: 'transparent',
+            borderColor: 'rgba(255,255,255,.55)'
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          legend: {
+            display: false
+          },
+          responsive: true,
+          tooltips: {
+            mode: 'index',
+            titleFontSize: 12,
+            titleFontColor: '#000',
+            bodyFontColor: '#000',
+            backgroundColor: '#fff',
+            titleFontFamily: 'Montserrat',
+            bodyFontFamily: 'Montserrat',
+            cornerRadius: 3,
+            intersect: false
+          },
+          scales: {
+            xAxes: [{
+              gridLines: {
+                color: 'transparent',
+                zeroLineColor: 'transparent'
+              },
+              ticks: {
+                fontSize: 2,
+                fontColor: 'transparent'
+              }
+            }],
+            yAxes: [{
+              display: false,
+              ticks: {
+                display: false
+              }
+            }]
+          },
+          title: {
+            display: false
+          },
+          elements: {
+            line: {
+              tension: 0.00001,
+              borderWidth: 1
+            },
+            point: {
+              radius: 4,
+              hitRadius: 10,
+              hoverRadius: 4
+            }
+          }
+        }
+      });
+    } //WidgetChart 3
+
+
+    var ctx = document.getElementById("widgetChart3");
+
+    if (ctx) {
+      ctx.height = 130;
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+          type: 'line',
+          datasets: [{
+            data: [65, 59, 84, 84, 51, 55],
+            label: 'Dataset',
+            backgroundColor: 'transparent',
+            borderColor: 'rgba(255,255,255,.55)'
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          legend: {
+            display: false
+          },
+          responsive: true,
+          tooltips: {
+            mode: 'index',
+            titleFontSize: 12,
+            titleFontColor: '#000',
+            bodyFontColor: '#000',
+            backgroundColor: '#fff',
+            titleFontFamily: 'Montserrat',
+            bodyFontFamily: 'Montserrat',
+            cornerRadius: 3,
+            intersect: false
+          },
+          scales: {
+            xAxes: [{
+              gridLines: {
+                color: 'transparent',
+                zeroLineColor: 'transparent'
+              },
+              ticks: {
+                fontSize: 2,
+                fontColor: 'transparent'
+              }
+            }],
+            yAxes: [{
+              display: false,
+              ticks: {
+                display: false
+              }
+            }]
+          },
+          title: {
+            display: false
+          },
+          elements: {
+            line: {
+              borderWidth: 1
+            },
+            point: {
+              radius: 4,
+              hitRadius: 10,
+              hoverRadius: 4
+            }
+          }
+        }
+      });
+    } //WidgetChart 4
+
+
+    var ctx = document.getElementById("widgetChart4");
+
+    if (ctx) {
+      ctx.height = 115;
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          datasets: [{
+            label: "My First dataset",
+            data: [78, 81, 80, 65, 58, 75, 60, 75, 65, 60, 60, 75],
+            borderColor: "transparent",
+            borderWidth: "0",
+            backgroundColor: "rgba(255,255,255,.3)"
+          }]
+        },
+        options: {
+          maintainAspectRatio: true,
+          legend: {
+            display: false
+          },
+          scales: {
+            xAxes: [{
+              display: false,
+              categoryPercentage: 1,
+              barPercentage: 0.65
+            }],
+            yAxes: [{
+              display: false
+            }]
+          }
+        }
+      });
+    } // Recent Report
+
+
+    var brandProduct = 'rgba(0,181,233,0.8)';
+    var brandService = 'rgba(0,173,95,0.8)';
+    var elements = 10;
+    var data1 = [52, 60, 55, 50, 65, 80, 57, 70, 105, 115];
+    var data2 = [102, 70, 80, 100, 56, 53, 80, 75, 65, 90];
+    var ctx = document.getElementById("recent-rep-chart");
+
+    if (ctx) {
+      ctx.height = 250;
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', ''],
+          datasets: [{
+            label: 'My First dataset',
+            backgroundColor: brandService,
+            borderColor: 'transparent',
+            pointHoverBackgroundColor: '#fff',
+            borderWidth: 0,
+            data: data1
+          }, {
+            label: 'My Second dataset',
+            backgroundColor: brandProduct,
+            borderColor: 'transparent',
+            pointHoverBackgroundColor: '#fff',
+            borderWidth: 0,
+            data: data2
+          }]
+        },
+        options: {
+          maintainAspectRatio: true,
+          legend: {
+            display: false
+          },
+          responsive: true,
+          scales: {
+            xAxes: [{
+              gridLines: {
+                drawOnChartArea: true,
+                color: '#f2f2f2'
+              },
+              ticks: {
+                fontFamily: "Poppins",
+                fontSize: 12
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                maxTicksLimit: 5,
+                stepSize: 50,
+                max: 150,
+                fontFamily: "Poppins",
+                fontSize: 12
+              },
+              gridLines: {
+                display: true,
+                color: '#f2f2f2'
+              }
+            }]
+          },
+          elements: {
+            point: {
+              radius: 0,
+              hitRadius: 10,
+              hoverRadius: 4,
+              hoverBorderWidth: 3
+            }
+          }
+        }
+      });
+    } // Percent Chart
+
+
+    var ctx = document.getElementById("percent-chart");
+
+    if (ctx) {
+      ctx.height = 280;
+      var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            label: "My First dataset",
+            data: [60, 40],
+            backgroundColor: ['#00b5e9', '#fa4251'],
+            hoverBackgroundColor: ['#00b5e9', '#fa4251'],
+            borderWidth: [0, 0],
+            hoverBorderColor: ['transparent', 'transparent']
+          }],
+          labels: ['Products', 'Services']
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          cutoutPercentage: 55,
+          animation: {
+            animateScale: true,
+            animateRotate: true
+          },
+          legend: {
+            display: false
+          },
+          tooltips: {
+            titleFontFamily: "Poppins",
+            xPadding: 15,
+            yPadding: 10,
+            caretPadding: 0,
+            bodyFontSize: 16
+          }
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    // Recent Report 2
+    var bd_brandProduct2 = 'rgba(0,181,233,0.9)';
+    var bd_brandService2 = 'rgba(0,173,95,0.9)';
+    var brandProduct2 = 'rgba(0,181,233,0.2)';
+    var brandService2 = 'rgba(0,173,95,0.2)';
+    var data3 = [52, 60, 55, 50, 65, 80, 57, 70, 105, 115];
+    var data4 = [102, 70, 80, 100, 56, 53, 80, 75, 65, 90];
+    var ctx = document.getElementById("recent-rep2-chart");
+
+    if (ctx) {
+      ctx.height = 230;
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', ''],
+          datasets: [{
+            label: 'My First dataset',
+            backgroundColor: brandService2,
+            borderColor: bd_brandService2,
+            pointHoverBackgroundColor: '#fff',
+            borderWidth: 0,
+            data: data3
+          }, {
+            label: 'My Second dataset',
+            backgroundColor: brandProduct2,
+            borderColor: bd_brandProduct2,
+            pointHoverBackgroundColor: '#fff',
+            borderWidth: 0,
+            data: data4
+          }]
+        },
+        options: {
+          maintainAspectRatio: true,
+          legend: {
+            display: false
+          },
+          responsive: true,
+          scales: {
+            xAxes: [{
+              gridLines: {
+                drawOnChartArea: true,
+                color: '#f2f2f2'
+              },
+              ticks: {
+                fontFamily: "Poppins",
+                fontSize: 12
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                maxTicksLimit: 5,
+                stepSize: 50,
+                max: 150,
+                fontFamily: "Poppins",
+                fontSize: 12
+              },
+              gridLines: {
+                display: true,
+                color: '#f2f2f2'
+              }
+            }]
+          },
+          elements: {
+            point: {
+              radius: 0,
+              hitRadius: 10,
+              hoverRadius: 4,
+              hoverBorderWidth: 3
+            },
+            line: {
+              tension: 0
+            }
+          }
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    // Recent Report 3
+    var bd_brandProduct3 = 'rgba(0,181,233,0.9)';
+    var bd_brandService3 = 'rgba(0,173,95,0.9)';
+    var brandProduct3 = 'transparent';
+    var brandService3 = 'transparent';
+    var data5 = [52, 60, 55, 50, 65, 80, 57, 115];
+    var data6 = [102, 70, 80, 100, 56, 53, 80, 90];
+    var ctx = document.getElementById("recent-rep3-chart");
+
+    if (ctx) {
+      ctx.height = 230;
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', ''],
+          datasets: [{
+            label: 'My First dataset',
+            backgroundColor: brandService3,
+            borderColor: bd_brandService3,
+            pointHoverBackgroundColor: '#fff',
+            borderWidth: 0,
+            data: data5,
+            pointBackgroundColor: bd_brandService3
+          }, {
+            label: 'My Second dataset',
+            backgroundColor: brandProduct3,
+            borderColor: bd_brandProduct3,
+            pointHoverBackgroundColor: '#fff',
+            borderWidth: 0,
+            data: data6,
+            pointBackgroundColor: bd_brandProduct3
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          legend: {
+            display: false
+          },
+          responsive: true,
+          scales: {
+            xAxes: [{
+              gridLines: {
+                drawOnChartArea: true,
+                color: '#f2f2f2'
+              },
+              ticks: {
+                fontFamily: "Poppins",
+                fontSize: 12
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                maxTicksLimit: 5,
+                stepSize: 50,
+                max: 150,
+                fontFamily: "Poppins",
+                fontSize: 12
+              },
+              gridLines: {
+                display: false,
+                color: '#f2f2f2'
+              }
+            }]
+          },
+          elements: {
+            point: {
+              radius: 3,
+              hoverRadius: 4,
+              hoverBorderWidth: 3,
+              backgroundColor: '#333'
+            }
+          }
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    //WidgetChart 5
+    var ctx = document.getElementById("widgetChart5");
+
+    if (ctx) {
+      ctx.height = 220;
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          datasets: [{
+            label: "My First dataset",
+            data: [78, 81, 80, 64, 65, 80, 70, 75, 67, 85, 66, 68],
+            borderColor: "transparent",
+            borderWidth: "0",
+            backgroundColor: "#ccc"
+          }]
+        },
+        options: {
+          maintainAspectRatio: true,
+          legend: {
+            display: false
+          },
+          scales: {
+            xAxes: [{
+              display: false,
+              categoryPercentage: 1,
+              barPercentage: 0.65
+            }],
+            yAxes: [{
+              display: false
+            }]
+          }
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    // Percent Chart 2
+    var ctx = document.getElementById("percent-chart2");
+
+    if (ctx) {
+      ctx.height = 209;
+      var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            label: "My First dataset",
+            data: [60, 40],
+            backgroundColor: ['#00b5e9', '#fa4251'],
+            hoverBackgroundColor: ['#00b5e9', '#fa4251'],
+            borderWidth: [0, 0],
+            hoverBorderColor: ['transparent', 'transparent']
+          }],
+          labels: ['Products', 'Services']
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          cutoutPercentage: 87,
+          animation: {
+            animateScale: true,
+            animateRotate: true
+          },
+          legend: {
+            display: false,
+            position: 'bottom',
+            labels: {
+              fontSize: 14,
+              fontFamily: "Poppins,sans-serif"
+            }
+          },
+          tooltips: {
+            titleFontFamily: "Poppins",
+            xPadding: 15,
+            yPadding: 10,
+            caretPadding: 0,
+            bodyFontSize: 16
+          }
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    //Sales chart
+    var ctx = document.getElementById("sales-chart");
+
+    if (ctx) {
+      ctx.height = 150;
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016"],
+          type: 'line',
+          defaultFontFamily: 'Poppins',
+          datasets: [{
+            label: "Foods",
+            data: [0, 30, 10, 120, 50, 63, 10],
+            backgroundColor: 'transparent',
+            borderColor: 'rgba(220,53,69,0.75)',
+            borderWidth: 3,
+            pointStyle: 'circle',
+            pointRadius: 5,
+            pointBorderColor: 'transparent',
+            pointBackgroundColor: 'rgba(220,53,69,0.75)'
+          }, {
+            label: "Electronics",
+            data: [0, 50, 40, 80, 40, 79, 120],
+            backgroundColor: 'transparent',
+            borderColor: 'rgba(40,167,69,0.75)',
+            borderWidth: 3,
+            pointStyle: 'circle',
+            pointRadius: 5,
+            pointBorderColor: 'transparent',
+            pointBackgroundColor: 'rgba(40,167,69,0.75)'
+          }]
+        },
+        options: {
+          responsive: true,
+          tooltips: {
+            mode: 'index',
+            titleFontSize: 12,
+            titleFontColor: '#000',
+            bodyFontColor: '#000',
+            backgroundColor: '#fff',
+            titleFontFamily: 'Poppins',
+            bodyFontFamily: 'Poppins',
+            cornerRadius: 3,
+            intersect: false
+          },
+          legend: {
+            display: false,
+            labels: {
+              usePointStyle: true,
+              fontFamily: 'Poppins'
+            }
+          },
+          scales: {
+            xAxes: [{
+              display: true,
+              gridLines: {
+                display: false,
+                drawBorder: false
+              },
+              scaleLabel: {
+                display: false,
+                labelString: 'Month'
+              },
+              ticks: {
+                fontFamily: "Poppins"
+              }
+            }],
+            yAxes: [{
+              display: true,
+              gridLines: {
+                display: false,
+                drawBorder: false
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Value',
+                fontFamily: "Poppins"
+              },
+              ticks: {
+                fontFamily: "Poppins"
+              }
+            }]
+          },
+          title: {
+            display: false,
+            text: 'Normal Legend'
+          }
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    //Team chart
+    var ctx = document.getElementById("team-chart");
+
+    if (ctx) {
+      ctx.height = 150;
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016"],
+          type: 'line',
+          defaultFontFamily: 'Poppins',
+          datasets: [{
+            data: [0, 7, 3, 5, 2, 10, 7],
+            label: "Expense",
+            backgroundColor: 'rgba(0,103,255,.15)',
+            borderColor: 'rgba(0,103,255,0.5)',
+            borderWidth: 3.5,
+            pointStyle: 'circle',
+            pointRadius: 5,
+            pointBorderColor: 'transparent',
+            pointBackgroundColor: 'rgba(0,103,255,0.5)'
+          }]
+        },
+        options: {
+          responsive: true,
+          tooltips: {
+            mode: 'index',
+            titleFontSize: 12,
+            titleFontColor: '#000',
+            bodyFontColor: '#000',
+            backgroundColor: '#fff',
+            titleFontFamily: 'Poppins',
+            bodyFontFamily: 'Poppins',
+            cornerRadius: 3,
+            intersect: false
+          },
+          legend: {
+            display: false,
+            position: 'top',
+            labels: {
+              usePointStyle: true,
+              fontFamily: 'Poppins'
+            }
+          },
+          scales: {
+            xAxes: [{
+              display: true,
+              gridLines: {
+                display: false,
+                drawBorder: false
+              },
+              scaleLabel: {
+                display: false,
+                labelString: 'Month'
+              },
+              ticks: {
+                fontFamily: "Poppins"
+              }
+            }],
+            yAxes: [{
+              display: true,
+              gridLines: {
+                display: false,
+                drawBorder: false
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Value',
+                fontFamily: "Poppins"
+              },
+              ticks: {
+                fontFamily: "Poppins"
+              }
+            }]
+          },
+          title: {
+            display: false
+          }
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    //bar chart
+    var ctx = document.getElementById("barChart");
+
+    if (ctx) {
+      ctx.height = 200;
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        defaultFontFamily: 'Poppins',
+        data: {
+          labels: ["January", "February", "March", "April", "May", "June", "July"],
+          datasets: [{
+            label: "My First dataset",
+            data: [65, 59, 80, 81, 56, 55, 40],
+            borderColor: "rgba(0, 123, 255, 0.9)",
+            borderWidth: "0",
+            backgroundColor: "rgba(0, 123, 255, 0.5)",
+            fontFamily: "Poppins"
+          }, {
+            label: "My Second dataset",
+            data: [28, 48, 40, 19, 86, 27, 90],
+            borderColor: "rgba(0,0,0,0.09)",
+            borderWidth: "0",
+            backgroundColor: "rgba(0,0,0,0.07)",
+            fontFamily: "Poppins"
+          }]
+        },
+        options: {
+          legend: {
+            position: 'top',
+            labels: {
+              fontFamily: 'Poppins'
+            }
+          },
+          scales: {
+            xAxes: [{
+              ticks: {
+                fontFamily: "Poppins"
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                fontFamily: "Poppins"
+              }
+            }]
+          }
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    //radar chart
+    var ctx = document.getElementById("radarChart");
+
+    if (ctx) {
+      ctx.height = 200;
+      var myChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: [["Eating", "Dinner"], ["Drinking", "Water"], "Sleeping", ["Designing", "Graphics"], "Coding", "Cycling", "Running"],
+          defaultFontFamily: 'Poppins',
+          datasets: [{
+            label: "My First dataset",
+            data: [65, 59, 66, 45, 56, 55, 40],
+            borderColor: "rgba(0, 123, 255, 0.6)",
+            borderWidth: "1",
+            backgroundColor: "rgba(0, 123, 255, 0.4)"
+          }, {
+            label: "My Second dataset",
+            data: [28, 12, 40, 19, 63, 27, 87],
+            borderColor: "rgba(0, 123, 255, 0.7",
+            borderWidth: "1",
+            backgroundColor: "rgba(0, 123, 255, 0.5)"
+          }]
+        },
+        options: {
+          legend: {
+            position: 'top',
+            labels: {
+              fontFamily: 'Poppins'
+            }
+          },
+          scale: {
+            ticks: {
+              beginAtZero: true,
+              fontFamily: "Poppins"
+            }
+          }
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    //line chart
+    var ctx = document.getElementById("lineChart");
+
+    if (ctx) {
+      ctx.height = 150;
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["January", "February", "March", "April", "May", "June", "July"],
+          defaultFontFamily: "Poppins",
+          datasets: [{
+            label: "My First dataset",
+            borderColor: "rgba(0,0,0,.09)",
+            borderWidth: "1",
+            backgroundColor: "rgba(0,0,0,.07)",
+            data: [22, 44, 67, 43, 76, 45, 12]
+          }, {
+            label: "My Second dataset",
+            borderColor: "rgba(0, 123, 255, 0.9)",
+            borderWidth: "1",
+            backgroundColor: "rgba(0, 123, 255, 0.5)",
+            pointHighlightStroke: "rgba(26,179,148,1)",
+            data: [16, 32, 18, 26, 42, 33, 44]
+          }]
+        },
+        options: {
+          legend: {
+            position: 'top',
+            labels: {
+              fontFamily: 'Poppins'
+            }
+          },
+          responsive: true,
+          tooltips: {
+            mode: 'index',
+            intersect: false
+          },
+          hover: {
+            mode: 'nearest',
+            intersect: true
+          },
+          scales: {
+            xAxes: [{
+              ticks: {
+                fontFamily: "Poppins"
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                fontFamily: "Poppins"
+              }
+            }]
+          }
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    //doughut chart
+    var ctx = document.getElementById("doughutChart");
+
+    if (ctx) {
+      ctx.height = 150;
+      var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            data: [45, 25, 20, 10],
+            backgroundColor: ["rgba(0, 123, 255,0.9)", "rgba(0, 123, 255,0.7)", "rgba(0, 123, 255,0.5)", "rgba(0,0,0,0.07)"],
+            hoverBackgroundColor: ["rgba(0, 123, 255,0.9)", "rgba(0, 123, 255,0.7)", "rgba(0, 123, 255,0.5)", "rgba(0,0,0,0.07)"]
+          }],
+          labels: ["Green", "Green", "Green", "Green"]
+        },
+        options: {
+          legend: {
+            position: 'top',
+            labels: {
+              fontFamily: 'Poppins'
+            }
+          },
+          responsive: true
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    //pie chart
+    var ctx = document.getElementById("pieChart");
+
+    if (ctx) {
+      ctx.height = 200;
+      var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          datasets: [{
+            data: [45, 25, 20, 10],
+            backgroundColor: ["rgba(0, 123, 255,0.9)", "rgba(0, 123, 255,0.7)", "rgba(0, 123, 255,0.5)", "rgba(0,0,0,0.07)"],
+            hoverBackgroundColor: ["rgba(0, 123, 255,0.9)", "rgba(0, 123, 255,0.7)", "rgba(0, 123, 255,0.5)", "rgba(0,0,0,0.07)"]
+          }],
+          labels: ["Green", "Green", "Green"]
+        },
+        options: {
+          legend: {
+            position: 'top',
+            labels: {
+              fontFamily: 'Poppins'
+            }
+          },
+          responsive: true
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    // polar chart
+    var ctx = document.getElementById("polarChart");
+
+    if (ctx) {
+      ctx.height = 200;
+      var myChart = new Chart(ctx, {
+        type: 'polarArea',
+        data: {
+          datasets: [{
+            data: [15, 18, 9, 6, 19],
+            backgroundColor: ["rgba(0, 123, 255,0.9)", "rgba(0, 123, 255,0.8)", "rgba(0, 123, 255,0.7)", "rgba(0,0,0,0.2)", "rgba(0, 123, 255,0.5)"]
+          }],
+          labels: ["Green", "Green", "Green", "Green"]
+        },
+        options: {
+          legend: {
+            position: 'top',
+            labels: {
+              fontFamily: 'Poppins'
+            }
+          },
+          responsive: true
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    // single bar chart
+    var ctx = document.getElementById("singelBarChart");
+
+    if (ctx) {
+      ctx.height = 150;
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ["Sun", "Mon", "Tu", "Wed", "Th", "Fri", "Sat"],
+          datasets: [{
+            label: "My First dataset",
+            data: [40, 55, 75, 81, 56, 55, 40],
+            borderColor: "rgba(0, 123, 255, 0.9)",
+            borderWidth: "0",
+            backgroundColor: "rgba(0, 123, 255, 0.5)"
+          }]
+        },
+        options: {
+          legend: {
+            position: 'top',
+            labels: {
+              fontFamily: 'Poppins'
+            }
+          },
+          scales: {
+            xAxes: [{
+              ticks: {
+                fontFamily: "Poppins"
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                fontFamily: "Poppins"
+              }
+            }]
+          }
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+})(jQuery);
+
+(function ($) {
+  // USE STRICT
+  "use strict";
+
+  $(".animsition").animsition({
+    inClass: 'fade-in',
+    outClass: 'fade-out',
+    inDuration: 900,
+    outDuration: 900,
+    linkElement: 'a:not([target="_blank"]):not([href^="#"]):not([class^="chosen-single"])',
+    loading: true,
+    loadingParentElement: 'html',
+    loadingClass: 'page-loader',
+    loadingInner: '<div class="page-loader__spin"></div>',
+    timeout: false,
+    timeoutCountdown: 5000,
+    onLoadEvent: true,
+    browser: ['animation-duration', '-webkit-animation-duration'],
+    overlay: false,
+    overlayClass: 'animsition-overlay-slide',
+    overlayParentElement: 'html',
+    transition: function transition(url) {
+      window.location.href = url;
+    }
+  });
+})(jQuery);
+
+(function ($) {
+  // USE STRICT
+  "use strict"; // Map
+
+  try {
+    var vmap = $('#vmap');
+
+    if (vmap[0]) {
+      vmap.vectorMap({
+        map: 'world_en',
+        backgroundColor: null,
+        color: '#ffffff',
+        hoverOpacity: 0.7,
+        selectedColor: '#1de9b6',
+        enableZoom: true,
+        showTooltip: true,
+        values: sample_data,
+        scaleColors: ['#1de9b6', '#03a9f5'],
+        normalizeFunction: 'polynomial'
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  } // Europe Map
+
+
+  try {
+    var vmap1 = $('#vmap1');
+
+    if (vmap1[0]) {
+      vmap1.vectorMap({
+        map: 'europe_en',
+        color: '#007BFF',
+        borderColor: '#fff',
+        backgroundColor: '#fff',
+        enableZoom: true,
+        showTooltip: true
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  } // USA Map
+
+
+  try {
+    var vmap2 = $('#vmap2');
+
+    if (vmap2[0]) {
+      vmap2.vectorMap({
+        map: 'usa_en',
+        color: '#007BFF',
+        borderColor: '#fff',
+        backgroundColor: '#fff',
+        enableZoom: true,
+        showTooltip: true,
+        selectedColor: null,
+        hoverColor: null,
+        colors: {
+          mo: '#001BFF',
+          fl: '#001BFF',
+          or: '#001BFF'
+        },
+        onRegionClick: function onRegionClick(event, code, region) {
+          event.preventDefault();
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  } // Germany Map
+
+
+  try {
+    var vmap3 = $('#vmap3');
+
+    if (vmap3[0]) {
+      vmap3.vectorMap({
+        map: 'germany_en',
+        color: '#007BFF',
+        borderColor: '#fff',
+        backgroundColor: '#fff',
+        onRegionClick: function onRegionClick(element, code, region) {
+          var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
+          alert(message);
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  } // France Map
+
+
+  try {
+    var vmap4 = $('#vmap4');
+
+    if (vmap4[0]) {
+      vmap4.vectorMap({
+        map: 'france_fr',
+        color: '#007BFF',
+        borderColor: '#fff',
+        backgroundColor: '#fff',
+        enableZoom: true,
+        showTooltip: true
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  } // Russia Map
+
+
+  try {
+    var vmap5 = $('#vmap5');
+
+    if (vmap5[0]) {
+      vmap5.vectorMap({
+        map: 'russia_en',
+        color: '#007BFF',
+        borderColor: '#fff',
+        backgroundColor: '#fff',
+        hoverOpacity: 0.7,
+        selectedColor: '#999999',
+        enableZoom: true,
+        showTooltip: true,
+        scaleColors: ['#C8EEFF', '#006491'],
+        normalizeFunction: 'polynomial'
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  } // Brazil Map
+
+
+  try {
+    var vmap6 = $('#vmap6');
+
+    if (vmap6[0]) {
+      vmap6.vectorMap({
+        map: 'brazil_br',
+        color: '#007BFF',
+        borderColor: '#fff',
+        backgroundColor: '#fff',
+        onRegionClick: function onRegionClick(element, code, region) {
+          var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
+          alert(message);
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+})(jQuery);
+
+(function ($) {
+  // Use Strict
+  "use strict";
+
+  try {
+    var progressbarSimple = $('.js-progressbar-simple');
+    progressbarSimple.each(function () {
+      var that = $(this);
+      var executed = false;
+      $(window).on('load', function () {
+        that.waypoint(function () {
+          if (!executed) {
+            executed = true;
+            /*progress bar*/
+
+            that.progressbar({
+              update: function update(current_percentage, $this) {
+                $this.find('.js-value').html(current_percentage + '%');
+              }
+            });
+          }
+        }, {
+          offset: 'bottom-in-view'
+        });
+      });
+    });
+  } catch (err) {
+    console.log(err);
+  }
+})(jQuery);
+
+(function ($) {
+  // USE STRICT
+  "use strict"; // Scroll Bar
+
+  try {
+    var jscr1 = $('.js-scrollbar1');
+
+    if (jscr1[0]) {
+      var ps1 = new PerfectScrollbar('.js-scrollbar1');
+    }
+
+    var jscr2 = $('.js-scrollbar2');
+
+    if (jscr2[0]) {
+      var ps2 = new PerfectScrollbar('.js-scrollbar2');
+    }
+  } catch (error) {
+    console.log(error);
+  }
+})(jQuery);
+
+(function ($) {
+  // USE STRICT
+  "use strict"; // Select 2
+
+  try {
+    $(".js-select2").each(function () {
+      $(this).select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $(this).next('.dropDownSelect2')
+      });
+    });
+  } catch (error) {
+    console.log(error);
+  }
+})(jQuery);
+
+(function ($) {
+  // USE STRICT
+  "use strict"; // Dropdown 
+
+  try {
+    var menu = $('.js-item-menu');
+    var sub_menu_is_showed = -1;
+
+    for (var i = 0; i < menu.length; i++) {
+      $(menu[i]).on('click', function (e) {
+        e.preventDefault();
+        $('.js-right-sidebar').removeClass("show-sidebar");
+
+        if (jQuery.inArray(this, menu) == sub_menu_is_showed) {
+          $(this).toggleClass('show-dropdown');
+          sub_menu_is_showed = -1;
+        } else {
+          for (var i = 0; i < menu.length; i++) {
+            $(menu[i]).removeClass("show-dropdown");
+          }
+
+          $(this).toggleClass('show-dropdown');
+          sub_menu_is_showed = jQuery.inArray(this, menu);
+        }
+      });
+    }
+
+    $(".js-item-menu, .js-dropdown").click(function (event) {
+      event.stopPropagation();
+    });
+    $("body,html").on("click", function () {
+      for (var i = 0; i < menu.length; i++) {
+        menu[i].classList.remove("show-dropdown");
+      }
+
+      sub_menu_is_showed = -1;
+    });
+  } catch (error) {
+    console.log(error);
+  }
+
+  var wW = $(window).width(); // Right Sidebar
+
+  var right_sidebar = $('.js-right-sidebar');
+  var sidebar_btn = $('.js-sidebar-btn');
+  sidebar_btn.on('click', function (e) {
+    e.preventDefault();
+
+    for (var i = 0; i < menu.length; i++) {
+      menu[i].classList.remove("show-dropdown");
+    }
+
+    sub_menu_is_showed = -1;
+    right_sidebar.toggleClass("show-sidebar");
+  });
+  $(".js-right-sidebar, .js-sidebar-btn").click(function (event) {
+    event.stopPropagation();
+  });
+  $("body,html").on("click", function () {
+    right_sidebar.removeClass("show-sidebar");
+  }); // Sublist Sidebar
+
+  try {
+    var arrow = $('.js-arrow');
+    arrow.each(function () {
+      var that = $(this);
+      that.on('click', function (e) {
+        e.preventDefault();
+        that.find(".arrow").toggleClass("up");
+        that.toggleClass("open");
+        that.parent().find('.js-sub-list').slideToggle("250");
+      });
+    });
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    // Hamburger Menu
+    $('.hamburger').on('click', function () {
+      $(this).toggleClass('is-active');
+      $('.navbar-mobile').slideToggle('500');
+    });
+    $('.navbar-mobile__list li.has-dropdown > a').on('click', function () {
+      var dropdown = $(this).siblings('ul.navbar-mobile__dropdown');
+      $(this).toggleClass('active');
+      $(dropdown).slideToggle('500');
+      return false;
+    });
+  } catch (error) {
+    console.log(error);
+  }
+})(jQuery);
+
+(function ($) {
+  // USE STRICT
+  "use strict"; // Load more
+
+  try {
+    var list_load = $('.js-list-load');
+
+    if (list_load[0]) {
+      list_load.each(function () {
+        var that = $(this);
+        that.find('.js-load-item').hide();
+        var load_btn = that.find('.js-load-btn');
+        load_btn.on('click', function (e) {
+          $(this).text("Loading...").delay(1500).queue(function (next) {
+            $(this).hide();
+            that.find(".js-load-item").fadeToggle("slow", 'swing');
+          });
+          e.preventDefault();
+        });
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+})(jQuery);
+
+(function ($) {
+  // USE STRICT
+  "use strict";
+
+  try {
+    $('[data-toggle="tooltip"]').tooltip();
+  } catch (error) {
+    console.log(error);
+  } // Chatbox
+
+
+  try {
+    var inbox_wrap = $('.js-inbox');
+    var message = $('.au-message__item');
+    message.each(function () {
+      var that = $(this);
+      that.on('click', function () {
+        $(this).parent().parent().parent().toggleClass('show-chat-box');
+      });
+    });
+  } catch (error) {
+    console.log(error);
+  }
+})(jQuery);
+
+/***/ }),
+
+/***/ 6:
+/*!************************************!*\
+  !*** multi ./resources/js/main.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! C:\Users\ADMIN\cloneinsta\resources\js\main.js */"./resources/js/main.js");
+
+
+/***/ })
+
+/******/ });

@@ -29,10 +29,20 @@
 
     <!-- Main CSS-->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 
 <body class="animsition">
+        <?php 
+            if(Auth::guard('admin')->check())
+            {
+            $count_mess = DB::table('messages')->where('',$arr_follow)->where([
+                ['to',auth()->user()->id],
+                ['is_read','0']
+            ])->distinct()->pluck('from')->count();
+            }
+        ?>
     <div class="page-wrapper">
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
@@ -62,7 +72,12 @@
                             <a href="{{route('admin.report')}}">
                                 <i class="far fa-check-square"></i>Report</a>
                         </li>
-                        <li>
+                        <li style="position: relative">
+                            <div id="pending" style="position: absolute;left: 100px">
+                                @if ($count_mess_group > 0)
+                                    <span id="count_mess_group" class="pending">{{$count_mess_group}}</span>
+                                @endif
+                            </div>
                             <a href="{{route('admin.chat')}}">
                                 <i class="fas fa-calendar-alt"></i>Room Chat</a>
                         </li>
@@ -88,12 +103,12 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             @if(Auth::guard('admin')->check())
-                            <form class="form-header" action="" method="POST">
+                            {{-- <form class="form-header" action="" method="POST">
                                 <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
-                            </form>
+                            </form> --}}
                             <div class="content">
                                 <a class="js-acc-btn" href="#" 
                                 onclick="event.preventDefault(); document.querySelector('#admin-logout-form').submit();" >
